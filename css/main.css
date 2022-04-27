@@ -96,7 +96,15 @@ a {
 
 .active-menu {
   width: 174px;
-  height: 52px;
+  margin-left: 16px;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  color: var(--blue) !important;
+}
+
+.hoverButton:hover {
+  width: 174px;
+  margin-left: 16px;
   background-color: var(--light-blue);
   border-radius: 5px;
   color: var(--blue) !important;
