@@ -23,12 +23,10 @@ export default class SpaService {
   // sets active tabbar/ menu item
   setActiveTab(pageId) {
     for (let navItem of this.navItems) {
-      if (`#${pageId}` == navItem.getAttribute("href")) {
+      if (`#${pageId}` === navItem.getAttribute("href")) {
         navItem.classList.add("active-menu");
-        console.log('yes')
       } else {
         navItem.classList.remove("active-menu");
-        console.log('no')
       }
     }
   }

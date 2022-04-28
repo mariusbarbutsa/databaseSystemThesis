@@ -2,13 +2,13 @@ import SpaService from "./spa-service.js";
 import UserService from "./user-service.js";
 import navigationMenu from "./navigation.js";
 import Dashboard from "./dashboard.js";
-import Menu from "./menu.js";
+import Users from "./users.js";
 
 let _spaService = new SpaService("home");
 let _userService = new UserService();
 let _navigationMenu = new navigationMenu();
 let _dashboard = new Dashboard();
-let _menu = new Menu();
+let users = new Users();
 let _selectedUserId = "";
 let _selectedImgFile = "";
 
