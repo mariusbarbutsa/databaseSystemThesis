@@ -34,15 +34,16 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-size: 2em;
-  font-weight: 300;
-  letter-spacing: 3px;
-}
-
 a {
   text-decoration: none;
-  color: var(--light-green);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  text-align: left;
+  margin: 0 110px 8px;
+  color: var(--text-color);
 }
 
 /* ---------- topbar styling ---------- */
@@ -186,7 +187,7 @@ a {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
-  background: var(--light-grey);
+  background: var(--background-color);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;
@@ -197,6 +198,48 @@ a {
   margin: 2em auto;
   width: 100%;
   max-width: 300px;
+}
+
+/* ---------- quick actions - dashboard ------- */
+.functions {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.function-box {
+  width: 151px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+  background-color: var(--light-blue);
+  padding: 20px 0;
+  margin: 12px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.03);
+}
+
+.function-box:hover {
+  background-color: var(--white);
+    transition: 0.2s;
+}
+
+ .function-content {
+  padding: 16px;
+  margin-top: 4px;
+}
+
+.function-name {
+  font-size: 20px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.name1, .name2, .name3, .name4 {
+  margin-top: 16px;
 }
 
 /* ---------- animations ---------- */
