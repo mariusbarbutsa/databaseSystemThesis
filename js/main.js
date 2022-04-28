@@ -57,10 +57,49 @@ window.previewImage = (file, previewId) => {
 
 window.toggleSidebar = () => {
   console.log("opening sidebar");
-  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("mySidebar").style.width = "206px";
+  document.querySelector(".active-menu").style.width = "174px";
+  const activeMenu = document.querySelectorAll('.hoverButton');
+  activeMenu.forEach(activeMenuItem => {
+    activeMenuItem.style.width = '174px';
+  });
+  const textIcons = document.querySelectorAll('.icon-text');
+  textIcons.forEach(iconText => {
+    iconText.style.display = 'block';
+  });
+  const raskraskIcon = document.querySelector('.raskrask-text');
+  raskraskIcon.style.display = 'block';
+
+  const menuItemFlex = document.querySelectorAll('.menu-item-flex');
+  menuItemFlex.forEach(menuItem => {
+    menuItem.style.justifyContent = 'left';
+    menuItem.style.marginLeft = '16px';
+  });
+
+
+
 }
 
 window.toggleSidebarOff = () => {
   console.log("closing sidebar");
-  document.getElementById("mySidebar").style.width = "85px";
+  document.getElementById("mySidebar").style.width = "80px";
+  document.querySelector(".active-menu").style.width = "48px";
+  const activeMenu = document.querySelectorAll('.hoverButton');
+  activeMenu.forEach(activeMenuItem => {
+    activeMenuItem.style.width = '48px';
+  });
+  const textIcons = document.querySelectorAll('.icon-text');
+  textIcons.forEach(iconText => {
+    iconText.style.display = 'none';
+  });
+
+  const raskraskIcon = document.querySelector('.raskrask-text');
+  raskraskIcon.style.display = 'none';
+
+  const menuItemFlex = document.querySelectorAll('.menu-item-flex');
+  menuItemFlex.forEach(menuItem => {
+    menuItem.style.justifyContent = 'center';
+    menuItem.style.marginLeft = '0';
+  });
+
 }

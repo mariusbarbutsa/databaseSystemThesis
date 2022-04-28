@@ -62,44 +62,56 @@ a {
 }
 
 .sidebar a {
-  padding: 16px;
+  padding: 16px 0 16px 0px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
   color: var(--gray-blue);
-  display: block;
+  display: flex;
+  flex-direction: column;
   transition: 0.3s;
 }
 
-.sidebar a:hover {
-  color: var(--blue);
+.menu-item-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+.icon-text {
+  margin-left: 16px;
+  display: none;
+
+}
+
+/* .sidebar a:hover {
+  color: var(--blue);
+} */
 
 .sidebar .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 16px;
-  margin-left: 50px;
+  margin-left: 32px;
 }
 
-
-.material-icons {
-  padding-bottom: 3px;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-  margin-left: 100px;
-}
 
 .active-menu {
-  width: 174px;
-  margin-left: 16px;
   background-color: var(--light-blue);
   border-radius: 5px;
   color: var(--blue) !important;
+  width: 48px;
+  margin-left: 16px;
+}
+
+.active-menu path {
+  stroke: var(--blue) !important;
+}
+
+.hoverButton {
+  margin-left: 16px;
+  width: 48px;
 }
 
 .hoverButton:hover {
@@ -107,7 +119,30 @@ a {
   margin-left: 16px;
   background-color: var(--light-blue);
   border-radius: 5px;
+  /* color: var(--blue) !important; */
+}
+
+.hoverButton:hover .icon-text {
   color: var(--blue) !important;
+}
+
+.hoverButton:hover path {
+  stroke: var(--blue) !important;
+}
+
+.settingsDiv {
+  position: absolute;
+  bottom: 20%;
+}
+
+.raskrask-icon {
+  position: absolute;
+  left: 27px;
+  top: 3%;
+}
+
+.raskrask-text {
+  display: none;
 }
 
 .topbar {
@@ -142,39 +177,9 @@ a {
   right: 20px;
 }
 
+
 /* ---------- tabbar styling ---------- */
-.tabbar {
-  background-color: var(--white);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-/* Style the links inside the navigation bar */
-.tabbar a {
-  display: inline-block;
-  color: var(--text-color-light);
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Change the color of links on hover */
-.tabbar a:hover {
-  background-color: var(--light-grey);
-  color: var(--text-color-dark);
-}
-
-/* Add a color to the active/current link */
-.tabbar a.active {
-  background-color: var(--light-green);
-  color: var(--text-color-light);
-}
+/*  */
 
 /* ---------- page styling ---------- */
 .page {

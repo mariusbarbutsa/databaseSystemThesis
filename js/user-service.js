@@ -36,7 +36,7 @@ export default class UserService {
       </article>
       `;
     }
-    document.querySelector('#user-container').innerHTML = htmlTemplate;
+    // document.querySelector('#user-container').innerHTML = htmlTemplate;
   }
 
   // ========== CREATE ==========
