@@ -1,10 +1,10 @@
 export default class navigationMenu {
-    constructor() {
-        this.template();
-    }
+  constructor() {
+    this.template();
+  }
 
-    template() {
-        document.querySelector("#home").innerHTML += /*html*/ `
+  template() {
+    document.querySelector("#home").innerHTML += /*html*/ `
      <h1 class="heading">DASHBOARD</h2>
 
       <div class="functions">
@@ -44,6 +44,46 @@ export default class navigationMenu {
           </div>
         </div>
       </div>
+      
+
+      <section class="latestbookingsBox">
+      <div class="latestbookingsContent">
+        <p class="latestbookingsTitle">Latest orders</p>
+        <table class="latestbookingsTable">
+          <thead>
+            <tr>
+              <th>
+                <div class="latestbookingsOrderLabel">Status<img src="/img/svg/order.svg" class="ordericon"></div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Payment</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Type</div>
+              </th>
+              <th>
+                <div class=" truncated-text latestbookingsOrderLabel">Fak. nr.</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Name</div>
+              </th>
+              <th>
+                <div class="truncated-text latestbookingsOrderLabel">Created on<img src="/img/svg/order.svg"
+                    class="ordericon"></div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Total<img src="/img/svg/order.svg" class="ordericon"></div>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody id="fetchedLatestBookings">
+          </tbody>
+          </tr>
+        </table>
+      </div>
+    </section>
     `;
-    }
+  }
+
 }

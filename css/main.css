@@ -223,10 +223,10 @@ h1 {
 
 .function-box:hover {
   background-color: var(--white);
-    transition: 0.2s;
+  transition: 0.2s;
 }
 
- .function-content {
+.function-content {
   padding: 16px;
   margin-top: 4px;
 }
@@ -238,7 +238,10 @@ h1 {
   margin-top: 4px;
 }
 
-.name1, .name2, .name3, .name4 {
+.name1,
+.name2,
+.name3,
+.name4 {
   margin-top: 16px;
 }
 
@@ -334,3 +337,102 @@ input {
   height: auto;
   margin: 1em 0;
 }
+
+/* recent bookings tab */
+.latestbookingsBox {
+  margin: 0 auto;
+  width: 851px;
+  height: inherit;
+  background-color: var(--white);
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  border-radius: 7px;
+  margin-left: 110px;
+}
+
+.latestbookingsContent {
+  text-align: left;
+  margin: auto auto;
+  margin: 24px 30px;
+
+}
+
+.latestbookingsTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 0;
+  padding-top: 34px;
+}
+
+.truncated-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.latestbookingsOrderLabel {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  color: var(--secondary-text-color);
+}
+
+.ordericon {
+  margin-left: 4px;
+  margin-top: 2px;
+}
+
+.latestbookingsTable {
+  height: inherit;
+}
+
+
+.fetchedLatestBookings {
+  height: calc(100% - 500px);
+  overflow: auto;
+}
+
+
+
+td {
+  margin: 20px 0 !important;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  color: white;
+  border: none;
+  background-color: var(--white);
+}
+
+tr {
+  height: 52px;
+  background-color: var(--tile-color);
+  border-radius: 7px;
+}
+
+tr td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+tr td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+th,
+td {
+  width: 150px;
+  text-align: left;
+  padding: 0px 16px;
+}
+
+/* end of recent bookings tab */
