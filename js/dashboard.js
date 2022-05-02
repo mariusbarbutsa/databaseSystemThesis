@@ -43,7 +43,8 @@ export default class Dashboard{
      <h1 class="heading">DASHBOARD</h2>
 
      <div class="layout">
-      <div class="functions">
+     <div class="content-left">
+      <section class="functions">
         <div class="function-box">
           <div class="function-content">
             <a href="#"><img src="img/svg/private-booking.svg" class="function-icon">
@@ -79,31 +80,7 @@ export default class Dashboard{
             </a>
           </div>
         </div>
-      </div>
-
-      <div class="stats">
-        <p class="stats-heading">Today, April 28 2022</p>
-        <p class="daily-clients-text">4 NEW CLIENTS</p>
-         <div class="graph-box">
-           <img src="../img/svg/donut-graph.svg" class="graph-img">
-            <div class="graph-text">
-              <p class="graph-description">TOTAL OF</p>
-              <p class="graph-description emphasized">40</p>
-              <p class="graph-description">ORDERS</p>
-            </div>
-        </div>
-        <div class="labels">
-         <div class="label1">
-          <span class="square1"></span>
-            <p class="label-text"><span class="semibold">Reorders:</span></b> 30</p>
-          </div>
-         <div class="label2">
-          <span class="square2"></span>
-            <p class="label-text"><span class="semibold">New orders:</span> 10</p>
-         </div>
-         </div>
-       </div>
-      </div>
+      </section>
 
       <section class="latestbookingsBox">
       <div class="latestbookingsContent">
@@ -143,9 +120,45 @@ export default class Dashboard{
         </table>
       </div>
     </section>
+    </div>
+
+    <div class="content-right">
+    <section class="stats">
+        <p class="stats-heading">Today, April 28 2022</p>
+        <p class="daily-clients-text">4 NEW CLIENTS</p>
+         <div class="graph-box">
+           <img src="../img/svg/donut-graph.svg" class="graph-img">
+            <div class="graph-text">
+              <p class="graph-description">TOTAL OF</p>
+              <p class="graph-description emphasized">40</p>
+              <p class="graph-description">ORDERS</p>
+            </div>
+        </div>
+        <div class="labels">
+         <div class="label1">
+          <span class="square1"></span>
+            <p class="label-text"><span class="semibold">Reorders:</span></b> 30</p>
+          </div>
+         <div class="label2">
+          <span class="square2"></span>
+            <p class="label-text"><span class="semibold">New orders:</span> 10</p>
+         </div>
+         </div>
+       </section>
+
+    <section class="help">
+      <div class="help-box">
+        <img src="../img/svg/help.svg" class="help-img">
+        <p class="help-heading">Need help?</p>
+      </div>
+      <p class="help-text">If you need help with onboarding into the system or further instructions of how to get started, press here:</p>
+    <a href="#" class="help-button">GUIDANCE</a>
+      </section>
+      </div>
+</div>
     `;
     
     document.querySelector(".stats-heading").innerHTML = today;
 
-}
+  }
 }
