@@ -46,9 +46,17 @@ h1 {
   color: var(--text-color);
 }
 
+button {
+  cursor: pointer;
+}
+
 /* ---------- topbar styling ---------- */
+nav {
+  z-index: 99999;
+}
 
 .sidebar {
+  z-index: 99999;
   height: 100%;
   width: 80px;
   position: fixed;
@@ -215,7 +223,7 @@ h1 {
 .content-right {
   display: flex;
   flex-direction: column;
-} 
+}
 
 .functions {
   margin-left: 100px;
@@ -325,14 +333,14 @@ h1 {
   justify-content: space-evenly;
 }
 
-.label1, 
+.label1,
 .label2 {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.square1{
+.square1 {
   display: inline;
   width: 11px;
   height: 11px;
@@ -340,7 +348,7 @@ h1 {
   margin-right: 8px;
 }
 
-.square2{
+.square2 {
   width: 11px;
   height: 11px;
   background-color: var(--light-blue);
@@ -365,11 +373,14 @@ h1 {
 
 /* recent bookings tab */
 .latestbookingsBox {
+  position: relative;
   width: 851px;
+  height: auto;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
   margin-left: 110px;
+  padding-bottom: 6px;
 }
 
 .latestbookingsContent {
@@ -383,7 +394,7 @@ h1 {
   font-weight: 600;
   font-size: 24px;
   line-height: 0;
-  padding-top: 34px;
+  padding-top: 12px;
 }
 
 .truncated-text {
@@ -399,6 +410,10 @@ h1 {
   line-height: 20px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
   color: var(--secondary-text-color);
 }
 
@@ -408,15 +423,43 @@ h1 {
 }
 
 .latestbookingsTable {
-  height: inherit;
+  height: 150px;
+  overflow: auto;
 }
 
-/* 
 .scroll-box {
-  height: 100px;
-  overflow-x: hidden;
-  overflow-y: auto;
-} */
+  height: 294px;
+  overflow: auto;
+  margin-top: 40px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--tile-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light-gray);
+  border-radius: 3.5px;
+}
+
+
+thead {
+  position: absolute;
+  top: 40px;
+
+}
+
+
+#fetchedLatestBookings {}
+
+
 
 
 td {
@@ -489,8 +532,8 @@ td {
 }
 
 .help-text {
-text-align: left;
- padding: 0 24px 4px 24px;
+  text-align: left;
+  padding: 0 24px 4px 24px;
 }
 
 .help-button {

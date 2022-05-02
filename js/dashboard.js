@@ -1,45 +1,45 @@
-export default class Dashboard{
-    constructor() {
-        this.template();
-        // this.dateDisplay();
-    }
+export default class Dashboard {
+  constructor() {
+    this.template();
+    // this.dateDisplay();
+  }
 
-//     dateDisplay() {
-//     var objToday = new Date(),
-// 	weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
-// 	dayOfWeek = weekday[objToday.getDay()],
-// 	domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
-// 	dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
-// 	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
-// 	curMonth = months[objToday.getMonth()],
-// 	curYear = objToday.getFullYear(),
-// 	curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
-// 	curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes(),
-// 	curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds(),
-// 	curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
-// var today = curHour + ":" + curMinute + "." + curSeconds + curMeridiem + " " + dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
+  //     dateDisplay() {
+  //     var objToday = new Date(),
+  // 	weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+  // 	dayOfWeek = weekday[objToday.getDay()],
+  // 	domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
+  // 	dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+  // 	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+  // 	curMonth = months[objToday.getMonth()],
+  // 	curYear = objToday.getFullYear(),
+  // 	curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
+  // 	curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes(),
+  // 	curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds(),
+  // 	curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
+  // var today = curHour + ":" + curMinute + "." + curSeconds + curMeridiem + " " + dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
 
-// document.getElementsByTagName('h1')[0].textContent = today;
-//     }
+  // document.getElementsByTagName('h1')[0].textContent = today;
+  //     }
 
-    template() {
-      // program to display the date
-      // get local machine date time
-      const date = new Date();
+  template() {
+    // program to display the date
+    // get local machine date time
+    const date = new Date();
 
-      // get the date as a string
-      const n = date.toDateString();
+    // get the date as a string
+    const n = date.toDateString();
 
-      const today = `Today, ` + n
+    const today = `Today, ` + n
 
-      // const a = "day"
+    // const a = "day"
 
-      // const day = n[0].concat(a)
+    // const day = n[0].concat(a)
 
-      // display date
-      console.log(today);
+    // display date
+    console.log(today);
 
-        document.querySelector("#home").innerHTML += /*html*/ `
+    document.querySelector("#home").innerHTML += /*html*/ `
      <h1 class="heading">DASHBOARD</h2>
 
      <div class="layout">
@@ -85,11 +85,12 @@ export default class Dashboard{
       <section class="latestbookingsBox">
       <div class="latestbookingsContent">
         <p class="latestbookingsTitle">Latest orders</p>
+         <div class='scroll-box'>
         <table class="latestbookingsTable">
           <thead>
             <tr>
               <th>
-                <div class="latestbookingsOrderLabel">Status<img src="/img/svg/order.svg" class="ordericon"></div>
+                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Status<img src="/img/svg/order.svg" class="ordericon"></button>
               </th>
               <th>
                 <div class="latestbookingsOrderLabel">Payment</div>
@@ -104,20 +105,19 @@ export default class Dashboard{
                 <div class="latestbookingsOrderLabel">Name</div>
               </th>
               <th>
-                <div class="truncated-text latestbookingsOrderLabel">Created on<img src="/img/svg/order.svg"
-                    class="ordericon"></div>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Total<img src="/img/svg/order.svg" class="ordericon"></div>
+                <button class="latestbookingsOrderLabel" name="price" value="price" onclick="orderBy(this.value);">Total<img src="/img/svg/order.svg" class="ordericon"></button>
               </th>
             </tr>
           </thead>
-          <div class='scroll-box'>
           <tbody id="fetchedLatestBookings">
           </tbody>
-          </div>
           </tr>
         </table>
+      </div>
       </div>
     </section>
     </div>
@@ -157,7 +157,7 @@ export default class Dashboard{
       </div>
 </div>
     `;
-    
+
     document.querySelector(".stats-heading").innerHTML = today;
 
   }

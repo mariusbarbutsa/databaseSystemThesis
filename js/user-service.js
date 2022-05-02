@@ -22,6 +22,12 @@ export default class UserService {
     });
   }
 
+
+
+
+
+
+
   // append users to the DOM
   appendUsers(users) {
     let htmlTemplate = "";

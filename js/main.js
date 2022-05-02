@@ -16,6 +16,14 @@ window.pageChange = function () {
   _spaService.pageChange();
 }
 
+window.orderBy = function (value) {
+  users.orderBy(value);
+}
+
+// window.orderByStatus = function () {
+//   users.orderByStatus();
+// }
+
 window.createUser = () => {
   // references to the input fields
   let nameInput = document.querySelector('#name');
