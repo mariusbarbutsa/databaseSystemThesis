@@ -478,9 +478,12 @@ input {
 }
 
 
-.fetchedLatestBookings {
-  height: calc(100% - 500px);
-  overflow: auto;
+#fetchedLatestBookings {}
+
+.scroll-box {
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 

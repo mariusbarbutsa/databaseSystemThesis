@@ -135,9 +135,10 @@ export default class Dashboard{
               </th>
             </tr>
           </thead>
-
+          <div class='scroll-box'>
           <tbody id="fetchedLatestBookings">
           </tbody>
+          </div>
           </tr>
         </table>
       </div>
