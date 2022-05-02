@@ -87,7 +87,7 @@ export default class Dashboard {
         <p class="latestbookingsTitle">Latest orders</p>
          <div class='scroll-box'>
         <table class="latestbookingsTable">
-          <thead>
+          <thead class='thead-absolute'>
             <tr>
               <th>
                 <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Status<img src="/img/svg/order.svg" class="ordericon"></button>

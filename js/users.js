@@ -5,10 +5,12 @@ import {
 export default class Users {
     constructor() {
         this.bookingRef = firebaseDB.collection("bookings");
-        this.read();
+        this.customerRef = firebaseDB.collection("customers");
+        this.readBookings();
+        this.readCustomers();
     }
 
-    read() {
+    readBookings() {
         // ========== READ ==========
         // watch the database ref for changes
         this.bookingRef.onSnapshot(snapshotData => {
@@ -22,7 +24,21 @@ export default class Users {
         });
     }
 
-    // append users to the DOM
+    readCustomers() {
+        // ========== READ ==========
+        // watch the database ref for changes
+        this.customerRef.onSnapshot(snapshotData => {
+            let customers = [];
+            snapshotData.forEach(doc => {
+                let customer = doc.data();
+                customer.id = doc.id;
+                customers.push(customer);
+            });
+            this.appendCustomer(customers);
+        });
+    }
+
+    // append bookings to the DOM
     appendBooking(bookings) {
         let htmlTemplate = "";
         for (let booking of bookings) {
@@ -39,6 +55,25 @@ export default class Users {
       `;
         }
         document.querySelector('#fetchedLatestBookings').innerHTML = htmlTemplate;
+        console.log(bookings)
+    }
+
+    // append customers to the DOM
+    appendCustomer(customers) {
+        let htmlTemplate = "";
+        for (let customer of customers) {
+            htmlTemplate += `
+            <tr>
+              <td class='truncated-text'>${customer.name}</td>
+              <td class='truncated-text'>${customer.email}</td>
+              <td class='truncated-text'>${customer.phone}</td>
+              <td>${customer.balance}</td>
+              <td>${customer.credits}</td>
+              <td class='truncated-text'>${customer.createdOn}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#fetchedCustomers').innerHTML = htmlTemplate;
         console.log(bookings)
     }
 
