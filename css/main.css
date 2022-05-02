@@ -429,7 +429,7 @@ input {
 
 /* recent bookings tab */
 .latestbookingsBox {
-  margin: 0 auto;
+  margin-top: -180px;
   width: 851px;
   height: inherit;
   background-color: var(--white);
