@@ -80,7 +80,30 @@ export default class Dashboard{
           </div>
         </div>
       </div>
-      
+
+      <div class="stats">
+        <p class="stats-heading">Today, April 28 2022</p>
+        <p class="daily-clients-text">4 NEW CLIENTS</p>
+         <div class="graph-box">
+           <img src="../img/svg/donut-graph.svg" class="graph-img">
+            <div class="graph-text">
+              <p class="graph-description">TOTAL OF</p>
+              <p class="graph-description emphasized">40</p>
+              <p class="graph-description">ORDERS</p>
+            </div>
+        </div>
+        <div class="labels">
+         <div class="label1">
+          <span class="square1"></span>
+            <p class="label-text"><span class="semibold">Reorders:</span></b> 30</p>
+          </div>
+         <div class="label2">
+          <span class="square2"></span>
+            <p class="label-text"><span class="semibold">New orders:</span> 10</p>
+         </div>
+         </div>
+       </div>
+      </div>
 
       <section class="latestbookingsBox">
       <div class="latestbookingsContent">
@@ -120,6 +143,8 @@ export default class Dashboard{
       </div>
     </section>
     `;
-  }
+    
+    document.querySelector(".stats-heading").innerHTML = today;
 
+}
 }
