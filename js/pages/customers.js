@@ -7,9 +7,21 @@ export default class Customers {
     template() {
 
         document.querySelector("#customers").innerHTML += /*html*/ `
+        <div class="top-content">
+        <div class="breadcrumbs">
+        <a href="#"><img src="../img/svg/home.svg"></a>
+        <img src="../img/svg/bracket.svg" class="back-bracket">
+        <a href="#customers" class="step-link">Customers</a>
+        </div>
+        <div class="user-display">
+        <p class="username">Josephine Rasmussen</p>
+        <img src="../img/svg/danish-flag.svg" class="flag">
+        </div>
+        </div>
+
      <h1 class="heading">CUSTOMER LIST</h2>
 
-     <div class="layout">
+     <div class="page-layout">
 
       
       <section class="customersBox">
@@ -28,7 +40,7 @@ export default class Customers {
                 <div class="latestbookingsOrderLabel">Phone nr.</div>
               </th>
               <th>
-                <div class=" truncated-text latestbookingsOrderLabel">Balance</div>
+                <div class="truncated-text latestbookingsOrderLabel">Balance</div>
               </th>
               <th>
                 <div class="latestbookingsOrderLabel">Credits</div>
@@ -50,27 +62,22 @@ export default class Customers {
 
 
 
-    <section class="stats">
-        <p class="stats-heading">Today, April 28 2022</p>
-        <p class="daily-clients-text">4 NEW CLIENTS</p>
-         <div class="graph-box">
-           <img src="../img/svg/donut-graph.svg" class="graph-img">
-            <div class="graph-text">
-              <p class="graph-description">TOTAL OF</p>
-              <p class="graph-description emphasized">40</p>
-              <p class="graph-description">ORDERS</p>
-            </div>
-        </div>
-        <div class="labels">
-         <div class="label1">
-          <span class="square1"></span>
-            <p class="label-text"><span class="semibold">Reorders:</span></b> 30</p>
-          </div>
-         <div class="label2">
-          <span class="square2"></span>
-            <p class="label-text"><span class="semibold">New orders:</span> 10</p>
-         </div>
-         </div>
+    <section class="quick-actions">
+       <div class="action-box">
+       <p class="actions-heading">Quick Actions</p>
+        <a href="#" class="action">
+          <img src="../img/svg/private-booking.svg" class="action-icon">
+          <p class="action-name">Private Booking</p>
+         </a>
+         <a href="#" class="action">
+          <img src="../img/svg/create-card.svg" class="action-icon">
+          <p class="action-name">Create Card</p>
+         </a>
+         <a href="#" class="action">
+          <img src="../img/svg/create-promocode.svg" class="action-icon">
+          <p class="action-name">Create Promo Code</p>
+         </a>
+       </div>
        </section>
 
 

@@ -40,46 +40,55 @@ export default class Dashboard {
     console.log(today);
 
     document.querySelector("#home").innerHTML += /*html*/ `
-     <h1 class="heading">DASHBOARD</h2>
+        <div class="user-display align-right">
+        <p class="username">Josephine Rasmussen</p>
+        <img src="../img/svg/danish-flag.svg" class="flag">
+        </div>
+    <h1 class="heading">DASHBOARD</h2>
 
      <div class="layout">
      <div class="content-left">
       <section class="functions">
+      <a href="#">
         <div class="function-box">
           <div class="function-content">
-            <a href="#"><img src="img/svg/private-booking.svg" class="function-icon">
+              <img src="img/svg/private-booking.svg" class="function-icon">
               <p class="function-name name1">Private Booking</p>
-            </a>
           </div>
         </div>
+        </a>
+        <a href="#">
         <div class="function-box">
           <div class="function-content">
-            <a href="#"><img src="img/svg/create-company.svg" class="function-icon">
+              <img src="img/svg/create-company.svg" class="function-icon">
               <p class="function-name">Create Company</p>
-            </a>
           </div>
         </div>
+        </a>
+        <a href="#">
         <div class="function-box">
           <div class="function-content">
-            <a href="#"><img src="img/svg/company-booking.svg" class="function-icon">
+              <img src="img/svg/company-booking.svg" class="function-icon">
               <p class="function-name name2">Company Booking</p>
-            </a>
           </div>
         </div>
+        </a>
+        <a href="#">
         <div class="function-box">
           <div class="function-content">
-            <a href="#"><img src="img/svg/create-card.svg" class="function-icon">
+              <img src="img/svg/create-card.svg" class="function-icon">
               <p class="function-name name3">Create Card</p>
-            </a>
           </div>
         </div>
+        </a>
+        <a href="#">
         <div class="function-box">
           <div class="function-content">
-            <a href="#"><img src="img/svg/create-promocode.svg" class="function-icon">
+              <img src="img/svg/create-promocode.svg" class="function-icon">
               <p class="function-name name4">Create Promo Code</p>
-            </a>
           </div>
         </div>
+        </a>
       </section>
 
       <section class="latestbookingsBox">
