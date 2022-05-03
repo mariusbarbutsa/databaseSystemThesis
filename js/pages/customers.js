@@ -1,12 +1,13 @@
 export default class Customers {
-    constructor() {
-        this.template();
-    }
+  constructor() {
+    this.template();
+
+  }
 
 
-    template() {
+  template() {
 
-        document.querySelector("#customers").innerHTML += /*html*/ `
+    document.querySelector("#customers").innerHTML += /*html*/ `
         <div class="top-content">
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
@@ -14,7 +15,7 @@ export default class Customers {
         <a href="#customers" class="step-link">Customers</a>
         </div>
         <div class="user-display">
-        <p class="username">Josephine Rasmussen</p>
+        <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
         </div>
         </div>
@@ -84,5 +85,7 @@ export default class Customers {
 </div>
     `;
 
-    }
+  }
+
+
 }

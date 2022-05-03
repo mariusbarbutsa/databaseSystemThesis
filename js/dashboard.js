@@ -44,7 +44,7 @@ export default class Dashboard {
 
     document.querySelector("#home").innerHTML += /*html*/ `
         <div class="user-display align-right">
-        <p class="username" id='username'>Josephine Rasmussen</p>
+        <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
         </div>
     <h1 class="heading">DASHBOARD</h2>

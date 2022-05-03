@@ -75,7 +75,10 @@ class AuthService {
     }
 
     appendAuthUser() {
-        document.querySelector('#username').innerHTML = this.authUser.displayName || "";
+        const userName = document.querySelectorAll('.username');
+        userName.forEach(username => {
+            username.innerHTML = this.authUser.displayName || "";
+        });
     }
 
     updateAuthUser(name, img, birthdate, hairColor, phone) {
