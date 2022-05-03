@@ -28,6 +28,12 @@ window.pageChange = function () {
   _spaService.pageChange();
 }
 
+window.setActiveTab = function (pageId) {
+  _spaService.setActiveTab(pageId);
+}
+
+
+
 window.orderBy = function (value) {
   users.orderBy(value);
 }

@@ -24,6 +24,8 @@ class AuthService {
                 this.userNotAuthenticated();
             }
         });
+
+
     }
 
     userAuthenticated(user) {
@@ -104,6 +106,8 @@ class AuthService {
         });
 
     }
+
+
 }
 
 const authService = new AuthService();

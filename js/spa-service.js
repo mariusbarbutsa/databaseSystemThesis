@@ -2,7 +2,7 @@ export default class SpaService {
   constructor(defaultPage) {
     this.defaultPage = defaultPage;
     this.pages = document.querySelectorAll(".page");
-    this.navItems = document.querySelectorAll(".tabbar a");
+    this.navItems = document.querySelectorAll("nav a");
     this.pageChange();
     this.hideTabbar();
   }
@@ -25,14 +25,17 @@ export default class SpaService {
 
   // sets active tabbar/ menu item
   setActiveTab(pageId) {
-    for (let navItem of this.navItems) {
-      if (`#${pageId}` === navItem.getAttribute("href")) {
-        navItem.classList.add("active-menu");
+    const activeMenu = document.querySelectorAll('.hoverButton');
+    activeMenu.forEach(activeElement => {
+      if (`#${pageId}` === activeElement.getAttribute("href")) {
+        activeElement.classList.add("active-menu");
       } else {
-        navItem.classList.remove("active-menu");
+        activeElement.classList.remove("active-menu");
       }
-    }
+    });
   }
+
+
 
   // navigate to a new view/page by changing href
   navigateTo(pageId) {

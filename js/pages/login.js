@@ -8,11 +8,11 @@ export default class LoginPage {
 
     document.querySelector("#login").innerHTML += /*html*/ `
 
-       
-          <h2>Login</h2>
-        </header>
+       <div class='login-container'>
+       <img src="/img/svg/icon-raskrask.svg" class='logo-svg'>
         <!-- firebase auth container  -->
         <section id="firebaseui-auth-container"></section>
+</div>
 
     `;
 
