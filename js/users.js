@@ -6,10 +6,12 @@ export default class Users {
     constructor() {
         this.bookingRef = firebaseDB.collection("bookings");
         this.customerRef = firebaseDB.collection("customers");
+        this.companiesRef = firebaseDB.collection("companies");
         this.readBookings();
         this.readCustomers();
         this.bookings = [];
         this.customers = [];
+        this.readCompanies();
     }
 
     readBookings() {
@@ -28,6 +30,13 @@ export default class Users {
 
     readCustomers() {
         // ========== READ ==========
+        // onSnapshot(this.customerRef, (snapshot) => {
+        //     this.customers = snapshot.docs.map((doc) => {
+        //         const customers = doc.data();
+        //         customers.id = doc.id;
+        //         return customers
+        //     })
+        // })
         // watch the database ref for changes
         this.customerRef.onSnapshot(snapshotData => {
             this.customers = snapshotData.docs.map(doc => {
@@ -39,6 +48,23 @@ export default class Users {
             let customerAmount = this.customers.length;
             console.log(customerAmount)
             document.querySelector("#customer-amount").innerHTML = customerAmount;
+        });
+    }
+
+       readCompanies() {
+        // ========== READ ==========
+        // watch the database ref for changes
+        this.companiesRef.onSnapshot(snapshotData => {
+            let companies = [];
+            snapshotData.forEach(doc => {
+                let company = doc.data();
+                company.id = doc.id;
+                companies.push(company);
+            });
+            this.appendCompanies(companies);
+            let companyAmount = companies.length;
+            console.log(companyAmount)
+            document.querySelector("#company-amount").innerHTML = companyAmount;
         });
     }
 
@@ -66,7 +92,7 @@ export default class Users {
         let htmlTemplate = "";
         for (let customer of this.customers) {
             htmlTemplate += `
-            <tr>
+            <tr onclick="showDetailView('${customer.id}')">
               <td class='truncated-text'>${customer.name}</td>
               <td class='truncated-text'>${customer.email}</td>
               <td class='truncated-text'>${customer.phone}</td>
@@ -77,7 +103,39 @@ export default class Users {
       `;
         }
         document.querySelector('#fetchedCustomers').innerHTML = htmlTemplate;
-        console.log(bookings)
+        console.log(customers)
+    }
+
+    // append customers to the DOM
+    appendCompanies(companies) {
+        let htmlTemplate = "";
+        for (let company of companies) {
+            htmlTemplate += `
+            <tr>
+              <td class='truncated-text'>${company.name}</td>
+              <td class='truncated-text'>${company.admin}</td>
+              <td class='truncated-text'>${company.email}</td>
+              <td class='truncated-text'>${company.phone}</td>
+              <td>${company.companyPrice} DKK</td>
+              <td>${company.employeePrice} DKK</td>
+              <td>${company.employeeBooking}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#fetchedCompanies').innerHTML = htmlTemplate;
+        console.log(companies)
+    }
+
+    showDetailView(id) {
+        console.log(this.bookings)
+        const customerObject = customers.find((customer) => customer.id == id);
+        document.querySelector("#customer-detailed-view").innerHTML = /*html*/ `
+           <tr>
+              <td class='truncated-text'>${customerObject.name}</td>
+              <td class='truncated-text'>${customerObject.email}</td>
+              <td class='truncated-text'>${customerObject.phone}</td>
+            </tr>
+        `
     }
 
 

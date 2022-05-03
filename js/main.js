@@ -4,6 +4,7 @@ import navigationMenu from "./navigation.js";
 import Dashboard from "./dashboard.js";
 import Users from "./users.js";
 import Customers from "./pages/customers.js";
+import Companies from "./pages/companies.js";
 import LoginPage from "./pages/login.js";
 import authService from "./auth.js";
 
@@ -12,6 +13,7 @@ let _userService = new UserService();
 let _navigationMenu = new navigationMenu();
 let _dashboard = new Dashboard();
 let _customers = new Customers();
+let _companies = new Companies();
 let loginPage = new LoginPage();
 let users = new Users();
 
@@ -37,6 +39,10 @@ window.setActiveTab = function (pageId) {
 window.orderBy = function (value) {
   users.orderBy(value);
 }
+
+window.showDetailView = function (id) {
+  users.showDetailView(id);
+};
 
 
 // window.orderByStatus = function () {

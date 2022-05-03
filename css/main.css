@@ -112,7 +112,8 @@ button {
   margin-bottom: 24px;
 }
 
-#customer-amount {
+#customer-amount,
+#company-amount {
   font-weight: 600;
   font-size: 32px;
   color: var(--blue);
