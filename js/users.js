@@ -35,6 +35,9 @@ export default class Users {
                 customers.push(customer);
             });
             this.appendCustomer(customers);
+            let customerAmount = customers.length;
+            console.log(customerAmount)
+            document.querySelector("#customer-amount").innerHTML = customerAmount;
         });
     }
 
