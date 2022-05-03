@@ -4,15 +4,25 @@ import navigationMenu from "./navigation.js";
 import Dashboard from "./dashboard.js";
 import Users from "./users.js";
 import Customers from "./pages/customers.js";
+import LoginPage from "./pages/login.js";
+import authService from "./auth.js";
 
 let _spaService = new SpaService("home");
 let _userService = new UserService();
 let _navigationMenu = new navigationMenu();
 let _dashboard = new Dashboard();
 let _customers = new Customers();
+let loginPage = new LoginPage();
 let users = new Users();
+
 let _selectedUserId = "";
 let _selectedImgFile = "";
+
+// init services 
+
+authService.init();
+
+window.logout = () => _dashboard.logout();
 
 window.pageChange = function () {
   _spaService.pageChange();
@@ -21,6 +31,7 @@ window.pageChange = function () {
 window.orderBy = function (value) {
   users.orderBy(value);
 }
+
 
 // window.orderByStatus = function () {
 //   users.orderByStatus();

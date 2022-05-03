@@ -1,6 +1,9 @@
+import authService from "./auth.js";
+
 export default class Dashboard {
   constructor() {
     this.template();
+    this.authService = authService;
     // this.dateDisplay();
   }
 
@@ -41,7 +44,7 @@ export default class Dashboard {
 
     document.querySelector("#home").innerHTML += /*html*/ `
         <div class="user-display align-right">
-        <p class="username">Josephine Rasmussen</p>
+        <p class="username" id='username'>Josephine Rasmussen</p>
         <img src="../img/svg/danish-flag.svg" class="flag">
         </div>
     <h1 class="heading">DASHBOARD</h2>
@@ -169,5 +172,9 @@ export default class Dashboard {
 
     document.querySelector(".stats-heading").innerHTML = today;
 
+
+  }
+  logout() {
+    this.authService.logout();
   }
 }

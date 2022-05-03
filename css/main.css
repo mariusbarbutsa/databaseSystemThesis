@@ -60,9 +60,10 @@ button {
   justify-content: space-between;
 }
 
-.align-right{
+.align-right {
   justify-content: right;
 }
+
 /*----- breadcrumbs------*/
 .breadcrumbs {
   display: flex;
@@ -265,6 +266,8 @@ nav {
 }
 
 /* ---------- quick actions - dashboard ------- */
+
+
 .layout {
   display: flex;
   flex-direction: row;
@@ -595,12 +598,12 @@ td {
 
 .actions-heading {
   font-family: 'Source Sans Pro';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-color: var(--text-color);
-text-align: left;
-margin-left: 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-color);
+  text-align: left;
+  margin-left: 12px;
 }
 
 .action {
@@ -666,3 +669,55 @@ margin-left: 12px;
   margin: 0 24px;
   margin-bottom: 24px;
 }
+
+
+/* Authentification */
+
+#firebaseui-auth-container {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.firebaseui-container {
+  font-family: var(--font-family);
+  font: 16px var(--font-family);
+}
+
+.firebaseui-title {
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.firebaseui-button {
+  max-width: 35%;
+}
+
+.mdl-button--raised.mdl-button--colored,
+.mdl-button--raised.mdl-button--colored:active,
+.mdl-button--raised.mdl-button--colored:hover {
+  background: var(--green);
+  color: #fff;
+  border-radius: 0;
+}
+
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after {
+  background-color: var(--green);
+}
+
+.mdl-button--primary.mdl-button--primary {
+  color: var(--green);
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.4s, opacity 0.4s linear;
+}
+
+
+/* end of the authentification */

@@ -13,11 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
     rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
 </head>
 
 <body onhashchange="pageChange()">
 
-  <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseleave="toggleSidebarOff()">
+  <div id="mySidebar" class="sidebar hide" onmouseover="toggleSidebar()" onmouseleave="toggleSidebarOff()">
 
     <svg width="137" height="32" viewBox="0 0 137 32" fill="none" class="raskrask-icon"
       xmlns="http://www.w3.org/2000/svg">
@@ -167,7 +168,7 @@
               <path d="M18.3938 9.49609L15.4336 12.0706" stroke="#92ADB6" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-            <span class="icon-text">Logout</span></span></a>
+            <span class="icon-text" onclick="logout()">Logout</span></span></a>
       </div>
 
     </nav>
@@ -184,7 +185,7 @@
   <section id="bookings" class="page"></section>
   <section id="creditcards" class="page"></section>
   <section id="help" class="page"></section>
-  <section id="logout" class="page"></section>
+  <section id="login" class="page"></section>
   <!-- create user page -->
   <section id="create" class="page">
     <header class="topbar">
@@ -218,12 +219,14 @@
   </section>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-  <!-- Firebase Firestore (database) JS SDK -->
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
   <!-- main js file -->
   <script src="js/main.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 </body>
 
 </html>

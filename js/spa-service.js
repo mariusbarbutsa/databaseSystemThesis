@@ -4,7 +4,10 @@ export default class SpaService {
     this.pages = document.querySelectorAll(".page");
     this.navItems = document.querySelectorAll(".tabbar a");
     this.pageChange();
+    this.hideTabbar();
   }
+
+
 
   // hide all pages
   hideAllPages() {
@@ -44,5 +47,15 @@ export default class SpaService {
       page = window.location.hash.slice(1);
     }
     this.showPage(page);
+  }
+
+  // show and hide tabbar
+  hideTabbar(hide) {
+    let tabbar = document.querySelector('#mySidebar');
+    if (hide) {
+      tabbar.classList.add("hide");
+    } else {
+      tabbar.classList.remove("hide");
+    }
   }
 }
