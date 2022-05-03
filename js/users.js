@@ -35,8 +35,8 @@ export default class Users {
                 customer.id = doc.id;
                 return customer;
             });
-            this.appendCustomer(customers);
-            let customerAmount = customers.length;
+            this.appendCustomer(this.customers);
+            let customerAmount = this.customers.length;
             console.log(customerAmount)
             document.querySelector("#customer-amount").innerHTML = customerAmount;
         });
