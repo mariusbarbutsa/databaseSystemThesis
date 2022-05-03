@@ -21,10 +21,12 @@ export default class Customers {
         </div>
 
      <h1 class="heading">CUSTOMER LIST</h2>
+    <div class="item-amount">
+     <span id="customer-amount"></span>
+     <p class="item-total">customers</p>
+     </div>
 
      <div class="page-layout">
-
-      
       <section class="customersBox">
       <div class="latestbookingsContent">
          <div class='scroll-box-customers'>

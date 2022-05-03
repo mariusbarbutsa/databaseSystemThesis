@@ -35,7 +35,10 @@ export default class Users {
                 customer.id = doc.id;
                 return customer;
             });
-            this.appendCustomer(this.customers);
+            this.appendCustomer(customers);
+            let customerAmount = customers.length;
+            console.log(customerAmount)
+            document.querySelector("#customer-amount").innerHTML = customerAmount;
         });
     }
 

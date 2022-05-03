@@ -56,7 +56,7 @@ button {
   font-weight: 300;
 }
 
-
+/*----- Top content - Breadcrumbs and profile - Vlada-----*/
 .top-content {
   display: flex;
   flex-direction: row;
@@ -87,7 +87,7 @@ button {
   margin-left: 12px;
   width: 5%;
 }
-
+/*------- Profile ------*/
 .user-display {
   display: flex;
   flex-direction: row;
@@ -102,7 +102,29 @@ button {
   margin-right: 12px;
 }
 
+/*------- Fetched data amount display -----*/
+.item-amount {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  margin-right: 272px;
+  margin-bottom: 24px;
+}
 
+#customer-amount {
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--blue);
+  margin-right: 8px;
+}
+
+.item-total {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-color);
+}
 
 /* ---------- topbar styling ---------- */
 nav {
@@ -239,10 +261,6 @@ a.active-menu path {
 .topbar a.right {
   right: 20px;
 }
-
-
-/* ---------- tabbar styling ---------- */
-/*  */
 
 /* ---------- page styling ---------- */
 .page {
