@@ -12,7 +12,7 @@ export default class Customers {
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
-        <a href="#customers" class="step-link">Customers</a>
+        <a href="#customers" class="step-link active-link">Customers</a>
         </div>
         <div class="user-display">
         <p class="username" id='username'></p>
@@ -29,7 +29,6 @@ export default class Customers {
      <div class="page-layout">
       <section class="customersBox">
       <div class="latestbookingsContent">
-         <div class='scroll-box-customers'>
         <table class='table-customers'>
           <thead>
             <tr>
@@ -59,7 +58,6 @@ export default class Customers {
           </tbody>
           </tr>
         </table>
-      </div>
       </div>
     </section>
 

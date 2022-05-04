@@ -11,7 +11,7 @@ export default class Companies {
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
-        <a href="#companies" class="step-link">Companies</a>
+        <a href="#companies" class="step-link active-link">Companies</a>
         </div>
         <div class="user-display">
         <p class="username" id='username'></p>
@@ -28,7 +28,6 @@ export default class Companies {
      <div class="page-layout">
       <section class="customersBox">
       <div class="latestbookingsContent">
-         <div class='scroll-box-customers'>
         <table class='table-customers'>
           <thead>
             <tr>
@@ -56,14 +55,12 @@ export default class Companies {
                 <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Booking<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
-            
             </tr>
           </thead>
           <tbody id="fetchedCompanies">
           </tbody>
           </tr>
         </table>
-      </div>
       </div>
     </section>
 

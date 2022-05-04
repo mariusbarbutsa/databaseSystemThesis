@@ -56,6 +56,24 @@ button {
   font-weight: 300;
 }
 
+.cta-button-dark {
+  padding: 8px 24px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.cta-button-light {
+  padding: 8px 24px;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  color: var(--blue);
+  font-weight: 400;
+  font-size: 16px;
+}
+
 /*----- Top content - Breadcrumbs and profile - Vlada-----*/
 .top-content {
   display: flex;
@@ -79,13 +97,18 @@ button {
 .step-link {
   font-weight: 600;
   font-size: 14px;
-  color: var(--blue);
+  color: var(--medium-gray);
   margin-left: 12px;
+  display: inline;
 }
 
+.active-link {
+  color: var(--blue);
+}
 .back-bracket {
   margin-left: 12px;
-  width: 5%;
+  width: 4px;
+height: 6px;
 }
 /*------- Profile ------*/
 .user-display {
@@ -275,9 +298,10 @@ a.active-menu path {
 }
 
 .page-layout {
+  margin: 0 10px 0 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 /* ---------- logo styling ---------- */
@@ -476,6 +500,7 @@ a.active-menu path {
   font-size: 24px;
   line-height: 0;
   padding-top: 12px;
+  margin-bottom: 16px;
 }
 
 .truncated-text {
@@ -586,13 +611,12 @@ td {
 /* Customers list */
 
 .customersBox {
-  position: relative;
   width: 1030px;
   height: auto;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
-  margin-left: 90px;
+  left: 60px;
   padding-bottom: 6px;
 }
 
@@ -785,3 +809,91 @@ td {
 
 
 /* end of the authentification */
+
+/*-------- Detailed View------*/
+/* #detailed-view-container {
+  margin-left: 110px;
+} */
+.profile-detailed {
+  display: flex;
+  margin-left: 110px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.profile-icon {
+  width: 85px;
+  margin-right: 32px;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 36px;
+  color: var(--text-color);
+  margin: 0;
+  margin-right: 24px;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.profile-status {
+  padding: 2px 24px;
+  border-radius: 2px;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.profile-important {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.profile-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-icon {
+  margin-right: 12px;
+}
+
+.contact-details {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.profile-important {
+  margin-right: 24px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  margin-left: 160px;
+}
+
+.space {
+  margin-left: 12px;
+}
+
+.no-bookings {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+}

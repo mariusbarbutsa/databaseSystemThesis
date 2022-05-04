@@ -34,7 +34,9 @@ window.setActiveTab = function (pageId) {
   _spaService.setActiveTab(pageId);
 }
 
-
+window.navigateTo = function (pageId) {
+   _spaService.navigateTo(pageId)
+ }
 
 window.orderBy = function (value) {
   users.orderBy(value);

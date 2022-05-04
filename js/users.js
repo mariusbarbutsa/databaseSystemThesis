@@ -9,9 +9,9 @@ export default class Users {
         this.companiesRef = firebaseDB.collection("companies");
         this.readBookings();
         this.readCustomers();
+        this.readCompanies();
         this.bookings = [];
         this.customers = [];
-        this.readCompanies();
     }
 
     readBookings() {
@@ -25,18 +25,12 @@ export default class Users {
                 return booking;
             });
             this.appendBooking(this.bookings);
+            // this.appendCustomerBookings(this.bookings)
         });
     }
 
     readCustomers() {
         // ========== READ ==========
-        // onSnapshot(this.customerRef, (snapshot) => {
-        //     this.customers = snapshot.docs.map((doc) => {
-        //         const customers = doc.data();
-        //         customers.id = doc.id;
-        //         return customers
-        //     })
-        // })
         // watch the database ref for changes
         this.customerRef.onSnapshot(snapshotData => {
             this.customers = snapshotData.docs.map(doc => {
@@ -91,12 +85,12 @@ export default class Users {
     appendCustomer(customers) {
         let htmlTemplate = "";
         for (let customer of this.customers) {
-            htmlTemplate += `
-            <tr onclick="showDetailView('${customer.id}')">
-              <td class='truncated-text'>${customer.name}</td>
-              <td class='truncated-text'>${customer.email}</td>
+            htmlTemplate += /*html*/ `
+            <tr onclick="showDetailView('${customer.id}'); navigateTo('detailedview');">
+              <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.name}</td>
+              <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.email}</td>
               <td class='truncated-text'>${customer.phone}</td>
-              <td>${customer.balance}</td>
+              <td>${customer.balance} DKK</td>
               <td>${customer.credits}</td>
               <td class='truncated-text'>${customer.createdOn}</td>
             </tr>
@@ -106,7 +100,7 @@ export default class Users {
         console.log(customers)
     }
 
-    // append customers to the DOM
+    // append companies to the DOM
     appendCompanies(companies) {
         let htmlTemplate = "";
         for (let company of companies) {
@@ -127,15 +121,141 @@ export default class Users {
     }
 
     showDetailView(id) {
-        console.log(this.bookings)
-        const customerObject = customers.find((customer) => customer.id == id);
-        document.querySelector("#customer-detailed-view").innerHTML = /*html*/ `
-           <tr>
-              <td class='truncated-text'>${customerObject.name}</td>
-              <td class='truncated-text'>${customerObject.email}</td>
-              <td class='truncated-text'>${customerObject.phone}</td>
+        const customerObject = this.customers.find((customer) => customer.id == id);
+        document.querySelector("#detailed-view-container").innerHTML = /*html*/ `
+        <div class="top-content">
+             <div class="breadcrumbs">
+                <a href="#"><img src="../img/svg/home.svg"></a>
+                 <img src="../img/svg/bracket.svg" class="back-bracket">
+                <a href="#customers" class="step-link">Customers</a>
+                <img src="../img/svg/bracket.svg" class="back-bracket">
+                <a href="#customers" class="step-link active-link">${customerObject.name}</a>
+            </div>
+            <div class="user-display">
+                <p class="username" id='username'></p>
+                <img src="../img/svg/danish-flag.svg" class="flag">
+            </div>
+        </div>
+        <div class="profile-detailed">
+            <img src="../img/svg/raskrask-customers.svg" class="profile-icon">
+            <div class="profile-description">
+            <div class="profile-main">
+                <h2 class="profile-name">${customerObject.name}</h2>
+                <p class="profile-status">${customerObject.status}</p>
+            </div>
+            <div class="contact-info">
+            <div class="profile-important">
+                 <img src="../img/svg/raskrask-message-icon.svg" class="contact-icon">
+                 <p class="contact-details">${customerObject.email}</p>
+            </div>
+             <div class="profile-important">
+                 <img src="../img/svg/raskrask-phone-icon.svg" class="contact-icon">
+                 <p class="contact-details">${customerObject.phone}</p>
+            </div>
+            <div class="profile-important">
+                 <img src="../img/svg/raskrask-location-icon.svg" class="contact-icon">
+                 <p class="contact-details">${customerObject.address}</p>
+            </div>
+            </div>
+            </div>
+            <div class="buttons">
+            <a href="#" class="cta-button-dark">Book</a>
+            <a href="#" class="cta-button-light space">Edit</a>
+            </div>
+        </div>
+
+        <div class="page-layout">
+      <section class="customersBox">
+      <div class="latestbookingsContent">
+      <p class="latestbookingsTitle">Bookings</p>
+        <table class='table-customers'>
+          <thead>
+            <tr>
+              <th>
+                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Status<img src="/img/svg/order.svg" class="ordericon"></button>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Partner</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Type</div>
+              </th>
+              <th>
+                <div class="truncated-text latestbookingsOrderLabel">Service date</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Address</div>
+              </th>
+              <th>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Total incl.VAT<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
+              </th>
+              <th>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Balance<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
+              </th>
             </tr>
+          </thead>
+          <tbody id="fetchedCustomerBookings">
+          </tbody>
+          </tr>
+        </table>
+      </div>
+      </section>
+
+       <section class="quick-actions">
+       <div class="action-box">
+       <p class="actions-heading">Quick Actions</p>
+        <a href="#" class="action">
+          <img src="../img/svg/private-booking.svg" class="action-icon">
+          <p class="action-name">Private Booking</p>
+         </a>
+         <a href="#" class="action">
+          <img src="../img/svg/create-card.svg" class="action-icon">
+          <p class="action-name">Create Card</p>
+         </a>
+         <a href="#" class="action">
+          <img src="../img/svg/create-promocode.svg" class="action-icon">
+          <p class="action-name">Create Promo Code</p>
+         </a>
+       </div>
+       </section>
+
+
+</div>
         `
+        if (customerObject.status === "Active") {
+    document.querySelector(".profile-status").style.backgroundColor =
+      "var(--green)";
+        } else {
+            document.querySelector(".profile-status").style.backgroundColor =
+      "var(--red)";
+        }
+        // this.appendCustomerBookings(this.bookings)
+        let htmlTemplate = "";
+        for (let booking of this.bookings) {
+            // console.log(customerObject.name, booking.client)
+            if(booking.name == customerObject.name) {
+            htmlTemplate += `
+            <tr>
+              <td>${booking.status}</td>
+              <td class='truncated-text'>${booking.alias}</td>
+              <td class='truncated-text'>${booking.type}</td>
+              <td class='truncated-text'>${booking.serviceDate}</td>
+              <td class='truncated-text'>${booking.address}</td>
+              <td>${booking.price} DKK</td>
+              <td>${booking.balance} DKK</td>
+            </tr>
+      `;
+        }
+    }
+    if(htmlTemplate == ""){
+        htmlTemplate += `
+       <p class="no-bookings">No current bookings</p>
+     `
+    }
+    document.querySelector('#fetchedCustomerBookings').innerHTML = htmlTemplate;
+        console.log(this.bookings)
     }
 
 
