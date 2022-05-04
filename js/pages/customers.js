@@ -22,11 +22,13 @@ export default class Customers {
 
      <h1 class="heading">CUSTOMER LIST</h2>
     <div class="item-amount">
-     <span id="customer-amount"></span>
-     <p class="item-total">customers</p>
+    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCustomers(this.value)" class='customerSearch'/></div>
+     <div class='search-flex-numbers'><span id="customer-amount"></span>
+     <p class="item-total">customers</p></div>
      </div>
 
      <div class="page-layout">
+     
       <section class="customersBox">
       <div class="latestbookingsContent">
         <table class='table-customers'>

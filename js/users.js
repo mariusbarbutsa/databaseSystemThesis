@@ -12,6 +12,8 @@ export default class Users {
         this.readCompanies();
         this.bookings = [];
         this.customers = [];
+        this.companies = [];
+        this.readCompanies();
     }
 
     readBookings() {
@@ -30,8 +32,6 @@ export default class Users {
     }
 
     readCustomers() {
-        // ========== READ ==========
-        // watch the database ref for changes
         this.customerRef.onSnapshot(snapshotData => {
             this.customers = snapshotData.docs.map(doc => {
                 const customer = doc.data();
@@ -45,22 +45,20 @@ export default class Users {
         });
     }
 
-       readCompanies() {
-        // ========== READ ==========
-        // watch the database ref for changes
+    readCompanies() {
+
         this.companiesRef.onSnapshot(snapshotData => {
-            let companies = [];
-            snapshotData.forEach(doc => {
-                let company = doc.data();
+            this.companies = snapshotData.docs.map(doc => {
+                const company = doc.data();
                 company.id = doc.id;
-                companies.push(company);
+                return company;
             });
-            this.appendCompanies(companies);
-            let companyAmount = companies.length;
-            console.log(companyAmount)
+            this.appendCompanies(this.companies);
+            let companyAmount = this.companies.length;
             document.querySelector("#company-amount").innerHTML = companyAmount;
         });
     }
+
 
     // append bookings to the DOM
     appendBooking(bookings) {
@@ -84,7 +82,7 @@ export default class Users {
     // append customers to the DOM
     appendCustomer(customers) {
         let htmlTemplate = "";
-        for (let customer of this.customers) {
+        for (let customer of customers) {
             htmlTemplate += /*html*/ `
             <tr onclick="showDetailView('${customer.id}'); navigateTo('detailedview');">
               <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.name}</td>
@@ -119,6 +117,8 @@ export default class Users {
         document.querySelector('#fetchedCompanies').innerHTML = htmlTemplate;
         console.log(companies)
     }
+
+
 
     showDetailView(id) {
         const customerObject = this.customers.find((customer) => customer.id == id);
@@ -225,18 +225,18 @@ export default class Users {
 </div>
         `
         if (customerObject.status === "Active") {
-    document.querySelector(".profile-status").style.backgroundColor =
-      "var(--green)";
+            document.querySelector(".profile-status").style.backgroundColor =
+                "var(--green)";
         } else {
             document.querySelector(".profile-status").style.backgroundColor =
-      "var(--red)";
+                "var(--red)";
         }
         // this.appendCustomerBookings(this.bookings)
         let htmlTemplate = "";
         for (let booking of this.bookings) {
             // console.log(customerObject.name, booking.client)
-            if(booking.name == customerObject.name) {
-            htmlTemplate += `
+            if (booking.name == customerObject.name) {
+                htmlTemplate += `
             <tr>
               <td>${booking.status}</td>
               <td class='truncated-text'>${booking.alias}</td>
@@ -247,14 +247,14 @@ export default class Users {
               <td>${booking.balance} DKK</td>
             </tr>
       `;
+            }
         }
-    }
-    if(htmlTemplate == ""){
-        htmlTemplate += `
+        if (htmlTemplate == "") {
+            htmlTemplate += `
        <p class="no-bookings">No current bookings</p>
      `
-    }
-    document.querySelector('#fetchedCustomerBookings').innerHTML = htmlTemplate;
+        }
+        document.querySelector('#fetchedCustomerBookings').innerHTML = htmlTemplate;
         console.log(this.bookings)
     }
 
@@ -285,23 +285,144 @@ export default class Users {
     }
 
     orderByDate() {
-        this.bookings.forEach(booking => {
 
+        this.bookings.sort((booking1, booking2) => {
+            return booking1.createdOn.localeCompare(booking2.createdOn);
         });
-        this.bookings.sort((date1, date2) => {
-            return date1.createdOn.localeCompare(date2.createdOn);
-        });
-        this.appendBooking(bookings);
-        console.log('success')
+        this.appendBooking(this.bookings);
     }
 
     orderByPrice() {
-        this.bookings.sort((price1, price2) => {
-            return price1.createdOn.localeCompare(price2.createdOn);
+
+        this.bookings.sort((booking1, booking2) => {
+            return booking2.price - booking1.price;
         });
-        this.appendBooking(bookings);
-        console.log('success')
+        this.appendBooking(this.bookings);
     }
+
+    appendGlobalSearch(bookings) {
+        let htmlTemplate = "";
+        for (let booking of bookings) {
+            htmlTemplate += `
+            <tr>
+              <td>${booking.status}</td>
+              <td class='truncated-text'>${booking.payment}</td>
+              <td class='truncated-text'>${booking.type}</td>
+              <td>${booking.fakturaNumber}</td>
+              <td class='truncated-text'>${booking.name}</td>
+              <td class='truncated-text'>${booking.createdOn}</td>
+              <td>${booking.price}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#searchedData').innerHTML = htmlTemplate;
+    }
+
+
+    searchedData(value) {
+        let searchitem = document.querySelector("#searchedData");
+        let bookingSearch = document.querySelector('#bookingsSearchSection');
+        let customerSearch = document.querySelector('#customersSearchSection');
+        bookingSearch.style.display = "none";
+        customerSearch.style.display = "none";
+        if (value == "") {
+            searchitem.style.display = "none";
+            bookingSearch.style.display = "none";
+            customerSearch.style.display = "none";
+            document.querySelector('.latestbookingsBox').classList.add("globalSearchBoxCustomers");
+        } else {
+            searchitem.style.display = "";
+            bookingSearch.style.display = "";
+            customerSearch.style.display = "";
+
+            let searchQuery = value.toLowerCase();
+            let filteredProducts = [];
+            let filteredProductsCustomers = [];
+
+            for (let booking of this.bookings) {
+                let name = booking.name.toLowerCase();
+                let date = booking.createdOn.toLowerCase();
+                let payment = booking.payment.toLowerCase();
+
+                if (name.includes(searchQuery) || date.includes(searchQuery) || payment.includes(searchQuery)) {
+                    filteredProducts.push(booking);
+                }
+            }
+
+            for (let customer of this.customers) {
+                let name = customer.name.toLowerCase();
+                let email = customer.email.toLowerCase();
+                let address = customer.address.toLowerCase();
+
+                if (name.includes(searchQuery) || email.includes(searchQuery) || address.includes(searchQuery)) {
+                    filteredProductsCustomers.push(customer);
+                }
+            }
+
+
+
+            this.appendGlobalSearch(filteredProducts);
+            this.appendGlobalSearchCustomers(filteredProductsCustomers);
+            console.log(filteredProductsCustomers)
+
+        }
+
+    }
+
+    searchCustomers(value) {
+
+        if (value == "") {
+            this.appendCustomer(this.customers);
+
+        } else {
+
+            let searchQuery = value.toLowerCase();
+            let filteredCustomers = [];
+
+
+            for (let customer of this.customers) {
+                let name = customer.name.toLowerCase();
+                let email = customer.email.toLowerCase();
+                let address = customer.address.toLowerCase();
+
+                if (name.includes(searchQuery) || email.includes(searchQuery) || address.includes(searchQuery)) {
+                    filteredCustomers.push(customer);
+
+                }
+            }
+            this.appendCustomer(filteredCustomers);
+
+        }
+
+    }
+
+    searchCompanies(value) {
+
+        if (value == "") {
+            this.appendCompanies(this.companies);
+
+        } else {
+
+            let searchQuery = value.toLowerCase();
+            let filteredCompanies = [];
+
+
+            for (let company of this.companies) {
+                let name = company.name.toLowerCase();
+                let email = company.email.toLowerCase();
+                let address = company.address.toLowerCase();
+
+                if (name.includes(searchQuery) || email.includes(searchQuery) || address.includes(searchQuery)) {
+                    filteredCompanies.push(company);
+                }
+            }
+            this.appendCompanies(filteredCompanies);
+
+        }
+
+    }
+
+
 
 
 

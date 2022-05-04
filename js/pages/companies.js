@@ -20,9 +20,11 @@ export default class Companies {
         </div>
 
      <h1 class="heading">COMPANY LIST</h2>
-    <div class="item-amount">
-     <span id="company-amount"></span>
-     <p class="item-total">companies</p>
+
+     <div class="item-amount">
+    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCompanies(this.value)" class='customerSearch'/></div>
+     <div class='search-flex-numbers'><span id="company-amount"></span>
+     <p class="item-total">companies</p></div>
      </div>
 
      <div class="page-layout">

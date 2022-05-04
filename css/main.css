@@ -110,6 +110,7 @@ button {
   width: 4px;
 height: 6px;
 }
+
 /*------- Profile ------*/
 .user-display {
   display: flex;
@@ -130,9 +131,13 @@ height: 6px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: right;
-  margin-right: 272px;
+  justify-content: space-between;
+  margin-right: 315px;
   margin-bottom: 24px;
+}
+
+.search-flex-numbers {
+  display: flex;
 }
 
 #customer-amount,
@@ -153,6 +158,56 @@ height: 6px;
 /* ---------- topbar styling ---------- */
 nav {
   z-index: 99999;
+}
+
+.user-display-flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 110px;
+  margin-right: 60px;
+  align-items: center;
+}
+
+.globalSearch {
+  margin: auto auto;
+  width: 100%;
+  width: 650px;
+  padding: 14px;
+  box-sizing: border-box;
+  display: block;
+  background: var(--white);
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  background-image: url("/img/svg/search.svg");
+  background-position: 24px center;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+
+}
+
+.customerSearch {
+  width: 100%;
+  margin-left: 110px;
+  width: 355px;
+  padding: 14px;
+  box-sizing: border-box;
+  display: block;
+  background: var(--white);
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  background-image: url("/img/svg/search.svg");
+  background-position: 24px center;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+  display: flex;
+  justify-content: left;
+}
+
+::placeholder {
+  color: var(--medium-gray);
 }
 
 .sidebar {
@@ -477,6 +532,8 @@ a.active-menu path {
 }
 
 /* recent bookings tab */
+
+
 .latestbookingsBox {
   position: relative;
   width: 851px;
@@ -533,6 +590,12 @@ a.active-menu path {
   overflow: auto;
 }
 
+.latestbookingsTable {
+  height: 150px;
+  overflow: auto;
+}
+
+
 .scroll-box {
   height: 294px;
   overflow: auto;
@@ -560,11 +623,6 @@ a.active-menu path {
   position: absolute;
   top: 40px;
 }
-
-
-#fetchedLatestBookings {}
-
-
 
 
 td {
@@ -621,7 +679,7 @@ td {
 }
 
 .scroll-box-customers {
-  height: 564px;
+  height: auto;
   overflow: none;
 }
 

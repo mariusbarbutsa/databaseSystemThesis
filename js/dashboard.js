@@ -25,10 +25,85 @@ export default class Dashboard {
     console.log(today);
 
     document.querySelector("#home").innerHTML += /*html*/ `
+    <div class='user-display-flexbox'>
+      <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchedData(this.value)" class='globalSearch'/></div>
         <div class="user-display align-right">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
         </div>
+        </div>
+        <section class="latestbookingsBox globalSearchBox" id='bookingsSearchSection' style='display: none;'>
+      <div class="latestbookingsContent">
+         <div>
+        <table class="latestbookingsTable">
+          <thead class='global-thead-absolute'>
+            <tr>
+              <th>
+                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Status<img src="/img/svg/order.svg" class="ordericon"></button>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Payment</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Type</div>
+              </th>
+              <th>
+                <div class=" truncated-text latestbookingsOrderLabel">Fak. nr.</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Name</div>
+              </th>
+              <th>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
+              </th>
+              <th>
+                <button class="latestbookingsOrderLabel" name="price" value="price" onclick="orderBy(this.value);">Total<img src="/img/svg/order.svg" class="ordericon"></button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id = "searchedData">
+          </tbody>
+          </tr>
+        </table>
+      </div>
+      </div>
+    </section>
+
+    <section class="latestbookingsBox globalSearchBoxCustomers" id='customersSearchSection' style='display: none;'>
+      <div class="latestbookingsContent">
+         <div>
+        <table class="latestbookingsTable">
+          <thead class='global-thead-absolute'>
+            <tr>
+             <th>
+                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Name/Surname<img src="/img/svg/order.svg" class="ordericon"></button>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Email address</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Phone nr.</div>
+              </th>
+              <th>
+                <div class="truncated-text latestbookingsOrderLabel">Balance</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Credits</div>
+              </th>
+              <th>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id = "searchedDataCustomers">
+          </tbody>
+          </tr>
+        </table>
+      </div>
+      </div>
+    </section>
     <h1 class="heading">DASHBOARD</h2>
 
      <div class="layout">
@@ -156,6 +231,8 @@ export default class Dashboard {
 
 
   }
+
+
   logout() {
     this.authService.logout();
   }

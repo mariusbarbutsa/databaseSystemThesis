@@ -26,13 +26,20 @@ export default class SpaService {
   // sets active tabbar/ menu item
   setActiveTab(pageId) {
     const activeMenu = document.querySelectorAll('.hoverButton');
+    const activeMenuCustomer = document.querySelector('.customer-hover');
     activeMenu.forEach(activeElement => {
       if (`#${pageId}` === activeElement.getAttribute("href")) {
         activeElement.classList.add("active-menu");
       } else {
         activeElement.classList.remove("active-menu");
       }
+      if (
+        `${pageId}` == "detailedview"
+      ) {
+        activeMenuCustomer.classList.add("active-menu");
+      }
     });
+
   }
 
 

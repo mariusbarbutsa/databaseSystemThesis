@@ -1,6 +1,4 @@
 import SpaService from "./spa-service.js";
-import UserService from "./user-service.js";
-import navigationMenu from "./navigation.js";
 import Dashboard from "./dashboard.js";
 import Users from "./users.js";
 import Customers from "./pages/customers.js";
@@ -9,8 +7,6 @@ import LoginPage from "./pages/login.js";
 import authService from "./auth.js";
 
 let _spaService = new SpaService("home");
-let _userService = new UserService();
-let _navigationMenu = new navigationMenu();
 let _dashboard = new Dashboard();
 let _customers = new Customers();
 let _companies = new Companies();
@@ -35,11 +31,23 @@ window.setActiveTab = function (pageId) {
 }
 
 window.navigateTo = function (pageId) {
-   _spaService.navigateTo(pageId)
- }
+  _spaService.navigateTo(pageId)
+}
 
 window.orderBy = function (value) {
   users.orderBy(value);
+}
+
+window.searchedData = function (value) {
+  users.searchedData(value);
+}
+
+window.searchCustomers = function (value) {
+  users.searchCustomers(value);
+}
+
+window.searchCompanies = function (value) {
+  users.searchCompanies(value);
 }
 
 window.showDetailView = function (id) {
