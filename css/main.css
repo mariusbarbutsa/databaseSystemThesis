@@ -45,7 +45,7 @@ h1 {
   font-weight: 700;
   font-size: 36px;
   text-align: left;
-  margin: 8px 110px 24px;
+  margin: 8px 0 24px;
   color: var(--text-color);
 }
 
@@ -54,6 +54,14 @@ button {
   cursor: pointer;
   text-decoration: none;
   font-weight: 300;
+}
+
+#partners,
+#customers,
+#companies,
+#detailedView, 
+#home {
+  margin: 0 80px 0 110px;
 }
 
 .cta-button-dark {
@@ -89,7 +97,6 @@ button {
 .breadcrumbs {
   display: flex;
   flex-direction: row;
-  margin-left: 110px;
   justify-content: center;
   align-items: center;
 }
@@ -116,7 +123,6 @@ height: 6px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 20px;
 }
 
 .username {
@@ -132,7 +138,6 @@ height: 6px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-right: 315px;
   margin-bottom: 24px;
 }
 
@@ -141,7 +146,8 @@ height: 6px;
 }
 
 #customer-amount,
-#company-amount {
+#company-amount,
+#partner-amount {
   font-weight: 600;
   font-size: 32px;
   color: var(--blue);
@@ -164,8 +170,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 110px;
-  margin-right: 60px;
   align-items: center;
 }
 
@@ -189,7 +193,6 @@ nav {
 
 .customerSearch {
   width: 100%;
-  margin-left: 110px;
   width: 355px;
   padding: 14px;
   box-sizing: border-box;
@@ -353,10 +356,9 @@ a.active-menu path {
 }
 
 .page-layout {
-  margin: 0 10px 0 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 /* ---------- logo styling ---------- */
@@ -366,13 +368,11 @@ a.active-menu path {
   max-width: 300px;
 }
 
-/* ---------- quick actions - dashboard ------- */
-
-
+/* ---------- quick actions - dashboard - Vlada ------- */
 .layout {
   display: flex;
   flex-direction: row;
-  padding: 16px 16px 0 0;
+  justify-content: space-between;
 }
 
 .content-left {
@@ -386,8 +386,7 @@ a.active-menu path {
 }
 
 .functions {
-  margin-left: 100px;
-  width: 880px;
+  width: 800px;
   height: 174px;
   display: flex;
   flex-direction: row;
@@ -396,16 +395,20 @@ a.active-menu path {
 }
 
 .function-box {
-  width: 151px;
-  height: 160px;
+  width: 146px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: first baseline;
   background-color: var(--light-blue);
   padding: 20px 0;
-  margin: 0 12px;
+  margin: 0 8px;
   border-radius: 7px;
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.03);
+}
+
+.box1 {
+  margin-left: 0;
 }
 
 .function-box:hover {
@@ -432,13 +435,13 @@ a.active-menu path {
   margin-top: 16px;
 }
 
-/*------- Daily Statistics -------*/
+/*------- Daily Statistics - Vlada -------*/
 .stats {
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
-  width: 428px;
-  height: 410px;
+  width: 380px;
+  height: 400px;
   margin-bottom: 24px;
 }
 
@@ -536,12 +539,11 @@ a.active-menu path {
 
 .latestbookingsBox {
   position: relative;
-  width: 851px;
+  width: 800px;
   height: auto;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
-  margin-left: 110px;
   padding-bottom: 6px;
 }
 
@@ -627,6 +629,12 @@ a.active-menu path {
 
 td {
   margin: 20px 0 !important;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: var(--light-blue);
+  transition: linear 0.1s;
 }
 
 table {
@@ -669,7 +677,7 @@ td {
 /* Customers list */
 
 .customersBox {
-  width: 1030px;
+  width: 78%;
   height: auto;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
@@ -687,7 +695,7 @@ td {
 
 /* End fo customers list */
 
-/*--------- Quick Actions -----------*/
+/*--------- Quick Actions - Vlada -----------*/
 .quick-actions {
   display: flex;
 }
@@ -735,7 +743,7 @@ td {
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
-  width: 428px;
+  width: 380px;
   display: flex;
   flex-direction: column;
 }
@@ -760,7 +768,7 @@ td {
 
 .help-text {
   text-align: left;
-  padding: 0 24px 4px 24px;
+  padding: 0 24px 0px 24px;
 }
 
 .help-button {
@@ -771,7 +779,7 @@ td {
   border-radius: 5px;
   width: 20%;
   margin: 0 24px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 
@@ -868,7 +876,7 @@ td {
 
 /* end of the authentification */
 
-/*-------- Detailed View------*/
+/*-------- Detailed View - Vlada ------*/
 /* #detailed-view-container {
   margin-left: 110px;
 } */
@@ -929,7 +937,6 @@ td {
 }
 
 .contact-details {
-  font-weight: 400;
   font-size: 16px;
 }
 
@@ -954,4 +961,25 @@ td {
   text-align: left;
   font-size: 14px;
   font-weight: 400;
+}
+
+/*---------- Partner page - Vlada --------*/
+
+.partnersBox {
+  position: absolute;
+  width: 85%;
+  height: auto;
+  background-color: var(--white);
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  border-radius: 7px;
+  padding-bottom: 6px;
+}
+
+.app-button {
+  padding: 4px 8px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
 }

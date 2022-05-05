@@ -7,13 +7,15 @@ export default class Users {
         this.bookingRef = firebaseDB.collection("bookings");
         this.customerRef = firebaseDB.collection("customers");
         this.companiesRef = firebaseDB.collection("companies");
+        this.partnersRef = firebaseDB.collection("partners");
         this.readBookings();
         this.readCustomers();
         this.readCompanies();
+        this.readPartners();
         this.bookings = [];
         this.customers = [];
         this.companies = [];
-        this.readCompanies();
+        this.partners = [];
     }
 
     readBookings() {
@@ -59,6 +61,20 @@ export default class Users {
         });
     }
 
+    readPartners() {
+
+        this.partnersRef.onSnapshot(snapshotData => {
+            this.partners = snapshotData.docs.map(doc => {
+                const partner = doc.data();
+                partner.id = doc.id;
+                return partner;
+            });
+            this.appendPartners(this.partners);
+            let partnerAmount = this.partners.length;
+            document.querySelector("#partner-amount").innerHTML = partnerAmount;
+        });
+    }
+
 
     // append bookings to the DOM
     appendBooking(bookings) {
@@ -77,6 +93,7 @@ export default class Users {
       `;
         }
         document.querySelector('#fetchedLatestBookings').innerHTML = htmlTemplate;
+        console.log(bookings)
     }
 
     // append customers to the DOM
@@ -117,6 +134,31 @@ export default class Users {
         document.querySelector('#fetchedCompanies').innerHTML = htmlTemplate;
         console.log(companies)
     }
+
+    // append companies to the DOM
+    appendPartners(partners) {
+        let htmlTemplate = "";
+        for (let partner of partners) {
+            htmlTemplate += `
+            <tr>
+            <td class="link-td"><span class='app-button'>APP</span></td>
+              <td class='truncated-text'>${partner.status}</td>
+              <td class='truncated-text'>${partner.alias}</td>
+              <td class='truncated-text'>${partner.speciality}</td>
+              <td class='truncated-text'>${partner.email}</td>
+              <td class='truncated-text'>${partner.phone}</td>
+              <td class='truncated-text'>${partner.area}</td>
+              <td>${partner.rab}</td>
+              <td>${partner.vat}</td>
+              <td>${partner.share}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#fetchedPartners').innerHTML = htmlTemplate;
+        console.log(partners)
+    }
+
+    
 
 
 

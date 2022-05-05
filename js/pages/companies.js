@@ -40,7 +40,7 @@ export default class Companies {
                 <div class="latestbookingsOrderLabel">Admin Name</div>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Email</div>
+                <div class="latestbookingsOrderLabel">Email address</div>
               </th>
               <th>
                 <div class="truncated-text latestbookingsOrderLabel">Phone number</div>

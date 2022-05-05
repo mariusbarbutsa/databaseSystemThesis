@@ -110,7 +110,7 @@ export default class Dashboard {
      <div class="content-left">
       <section class="functions">
       <a href="#">
-        <div class="function-box">
+        <div class="function-box box1">
           <div class="function-content">
               <img src="img/svg/private-booking.svg" class="function-icon">
               <p class="function-name name1">Private Booking</p>

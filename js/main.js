@@ -3,6 +3,7 @@ import Dashboard from "./dashboard.js";
 import Users from "./users.js";
 import Customers from "./pages/customers.js";
 import Companies from "./pages/companies.js";
+import Partners from "./pages/partners.js";
 import LoginPage from "./pages/login.js";
 import authService from "./auth.js";
 
@@ -10,6 +11,7 @@ let _spaService = new SpaService("home");
 let _dashboard = new Dashboard();
 let _customers = new Customers();
 let _companies = new Companies();
+let _partners = new Partners();
 let loginPage = new LoginPage();
 let users = new Users();
 
