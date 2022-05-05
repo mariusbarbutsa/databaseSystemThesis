@@ -40,6 +40,10 @@ window.orderBy = function (value) {
   users.orderBy(value);
 }
 
+window.orderByCustomers = function (value) {
+  users.orderByCustomers(value);
+}
+
 window.searchedData = function (value) {
   users.searchedData(value);
 }
@@ -154,3 +158,15 @@ window.toggleSidebarOff = () => {
   });
 
 }
+
+window.modalDisplay = function (state) {
+  /* state can be 1 or 0 */
+  var bluredContainer = document.getElementById('overlay-container');
+  var overlayElement = document.getElementById('overlay');
+
+  if (state) {
+    overlayElement.style.display = 'block';
+  } else {
+    overlayElement.style.display = 'none';
+  }
+};

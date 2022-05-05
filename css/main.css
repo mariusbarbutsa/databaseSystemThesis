@@ -59,9 +59,16 @@ button {
 #partners,
 #customers,
 #companies,
-#detailedView, 
+#detailedView,
 #home {
   margin: 0 80px 0 110px;
+}
+
+input {
+  background-color: var(--background-color);
+  border: 1px solid var(--medium-gray);
+  border-radius: 7px;
+  text-indent: 12px;
 }
 
 .cta-button-dark {
@@ -112,10 +119,11 @@ button {
 .active-link {
   color: var(--blue);
 }
+
 .back-bracket {
   margin-left: 12px;
   width: 4px;
-height: 6px;
+  height: 6px;
 }
 
 /*------- Profile ------*/
@@ -815,14 +823,6 @@ td {
 }
 
 
-#firebaseui-auth-container {
-
-  /* position: absolute;
-  top: 50%;
-  width: 100%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); */
-}
 
 .firebaseui-container {
   border-radius: 7px;
@@ -983,3 +983,137 @@ td {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* Modals */
+
+#overlay {
+  position: fixed;
+  display: none;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(39, 106, 130, 0.2);
+  z-index: 999;
+}
+
+#popup {
+  position: absolute;
+  width: 676px;
+  height: 686px;
+  background: var(--white);
+  border-radius: 7px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modal-flexbox {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-heading-text {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.modal-form-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.modal-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 0;
+  margin-bottom: 16px;
+}
+
+.red {
+  color: var(--red);
+}
+
+.modal-field-text {
+  width: 286px;
+  height: 38px;
+}
+
+.modal-field-phone {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-field-select {
+  width: 97px;
+  height: 41px;
+  margin-right: 12px;
+  background-color: var(--background-color);
+  border: 1px solid var(--medium-gray);
+  border-radius: 7px;
+  text-indent: 12px;
+}
+
+.modal-field-number {
+  width: 177px;
+  height: 38px;
+}
+
+.right-margin {
+  margin-right: 24px;
+}
+
+.right-margin-half {
+  margin-right: 12px;
+}
+
+.modal-field-date {
+  width: 137px;
+  height: 38px;
+  text-indent: 8px;
+
+}
+
+.modal-field-select-field {
+  width: 286px;
+  height: 38px;
+  background-color: var(--background-color);
+  border: 1px solid var(--medium-gray);
+  border-radius: 7px;
+  text-indent: 12px;
+}
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url('/img/svg/calendar-date.svg');
+  padding-right: 8px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background-image: url('/img/svg/clock-time.svg');
+  padding-right: 8px;
+}
+
+
+
+
+
+/* end of modals */

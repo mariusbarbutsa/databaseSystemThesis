@@ -109,7 +109,7 @@ export default class Dashboard {
      <div class="layout">
      <div class="content-left">
       <section class="functions">
-      <a href="#">
+      <a href = "javascript:modalDisplay(1);" >
         <div class="function-box box1">
           <div class="function-content">
               <img src="img/svg/private-booking.svg" class="function-icon">

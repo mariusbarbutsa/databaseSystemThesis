@@ -80,6 +80,10 @@ export default class Users {
     appendBooking(bookings) {
         let htmlTemplate = "";
         for (let booking of this.bookings) {
+            var timestamp = booking.createdOn;
+            var date = new Date(timestamp);
+            var dateCreated = date;
+            dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
             htmlTemplate += `
             <tr>
               <td>${booking.status}</td>
@@ -87,7 +91,7 @@ export default class Users {
               <td class='truncated-text'>${booking.type}</td>
               <td>${booking.fakturaNumber}</td>
               <td class='truncated-text'>${booking.name}</td>
-              <td class='truncated-text'>${booking.createdOn}</td>
+              <td class='truncated-text'>${dateCreated}</td>
               <td>${booking.price}</td>
             </tr>
       `;
@@ -100,6 +104,10 @@ export default class Users {
     appendCustomer(customers) {
         let htmlTemplate = "";
         for (let customer of customers) {
+            var timestamp = customer.createdOn;
+            var date = new Date(timestamp);
+            var dateCreated = date;
+            dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
             htmlTemplate += /*html*/ `
             <tr onclick="showDetailView('${customer.id}'); navigateTo('detailedview');">
               <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.name}</td>
@@ -107,7 +115,7 @@ export default class Users {
               <td class='truncated-text'>${customer.phone}</td>
               <td>${customer.balance} DKK</td>
               <td>${customer.credits}</td>
-              <td class='truncated-text'>${customer.createdOn}</td>
+              <td class='truncated-text'>${dateCreated}</td>
             </tr>
       `;
         }
@@ -134,10 +142,10 @@ export default class Users {
         document.querySelector('#fetchedCompanies').innerHTML = htmlTemplate;
         console.log(companies)
     }
-
     // append companies to the DOM
     appendPartners(partners) {
         let htmlTemplate = "";
+        let attachPartners = "";
         for (let partner of partners) {
             htmlTemplate += `
             <tr>
@@ -153,12 +161,19 @@ export default class Users {
               <td>${partner.share}</td>
             </tr>
       `;
+
+            attachPartners += `
+            <option>${partner.alias}</option>
+            `;
+            console.log(partner.alias)
         }
         document.querySelector('#fetchedPartners').innerHTML = htmlTemplate;
+        document.querySelector('#fetchedPartnerAlias').innerHTML = attachPartners;
         console.log(partners)
     }
 
-    
+
+
 
 
 
@@ -329,7 +344,13 @@ export default class Users {
     orderByDate() {
 
         this.bookings.sort((booking1, booking2) => {
-            return booking1.createdOn.localeCompare(booking2.createdOn);
+            var timestamp1 = booking1.createdOn;
+            var timestamp2 = booking2.createdOn;
+            var date1 = new Date(timestamp1);
+            var date2 = new Date(timestamp2);
+            var dateCreated1 = date1;
+            var dateCreated2 = date2;
+            return dateCreated1 - dateCreated2
         });
         this.appendBooking(this.bookings);
     }
@@ -340,6 +361,40 @@ export default class Users {
             return booking2.price - booking1.price;
         });
         this.appendBooking(this.bookings);
+    }
+
+    // order function - Marius
+    orderByCustomers(value) {
+        console.log(value)
+        if (value === "name") {
+            this.orderByName();
+        } else if (value === "date") {
+            this.orderByDateCustomers();
+        }
+    }
+
+    // order by environment of the activity function - Marius
+    orderByName() {
+
+        this.customers.sort((customer1, customer2) => {
+            return customer1.name.localeCompare(customer2.name);
+        });
+        this.appendCustomer(this.customers);
+
+    }
+
+    orderByDateCustomers() {
+
+        this.customers.sort((customer1, customer2) => {
+            var timestamp1 = customer1.createdOn;
+            var timestamp2 = customer2.createdOn;
+            var date1 = new Date(timestamp1);
+            var date2 = new Date(timestamp2);
+            var dateCreated1 = date1;
+            var dateCreated2 = date2;
+            return dateCreated1 - dateCreated2
+        });
+        this.appendCustomer(this.customers);
     }
 
     appendGlobalSearch(bookings) {

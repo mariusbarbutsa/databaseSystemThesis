@@ -176,21 +176,109 @@
 
   <!-- pages -->
   <!-- home page -->
-  <section id="home" class="page">
-  </section>
+  <div id="overlay">
+    <div id="popup"><a href="javascript:modalDisplay(0);"><img class="close-modal" src="/img/svg/close-modal.svg"></a>
+      <div class="modal-flexbox">
+        <p class="modal-heading-text">Private Booking</p>
+        <div class="modal-form-row">
 
-  <section id="customers" class="page"></section>
-  <section id="companies" class="page"></section>
-  <section id="partners" class="page"></section>
-  <section id="bookings" class="page"></section>
-  <section id="creditcards" class="page"></section>
-  <section id="help" class="page"></section>
-  <section id="login" class="page"></section>
-  <section id="detailedview" class="page">
-    <div id="detailed-view-container">
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Customer name<span class="red">*</span></p>
+            <input type="text" name="name" placeholder="e.g. Glenn Vestergaard" class="modal-field-text" required>
+          </div>
+
+          <div class="modal-form-field">
+            <p class="modal-field-label">Phone number<span class="red">*</span></p>
+            <div class="modal-field-phone">
+              <select value="+45" class="modal-field-select right-margin-half">
+                <option>+45</option>
+                <option>+46</option>
+                <option>+47</option>
+              </select>
+              <input type="number" name="number" placeholder="e.g. 91932323" class="modal-field-number" required>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-form-row">
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Email<span class="red">*</span></p>
+            <input type="email" name="email" placeholder="e.g. glennvestergaar@gmail.com" class="modal-field-text"
+              required>
+          </div>
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Address<span class="red">*</span></p>
+            <input type="text" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-text" required>
+          </div>
+
+        </div>
+
+
+        <div class="modal-form-row">
+
+          <div class="modal-form-field right-margin-half">
+            <p class="modal-field-label">Date<span class="red">*</span></p>
+            <input type="date" name="email" placeholder="e.g. glennvestergaar@gmail.com" class="modal-field-date"
+              required>
+          </div>
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Time<span class="red">*</span></p>
+            <input type="time" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-date" required>
+          </div>
+
+        </div>
+
+        <div class="modal-form-row">
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Customer name<span class="red">*</span></p>
+            <select class="modal-field-select-field" id="fetchedPartnerAlias" required>
+              <option value="" disabled selected hidden>Choose a partner</option>
+
+
+            </select>
+          </div>
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Customer name<span class="red">*</span></p>
+            <select class="modal-field-select-field" id="fetchedPartnerAlias" required>
+              <option value="" disabled selected hidden>Choose the service</option>
+              <option>Massage</option>
+              <option>Yoga Training</option>
+              <option>Hairdresser</option>
+              <option>Personal training</option>
+
+
+            </select>
+          </div>
+
+        </div>
+
+
+      </div>
     </div>
+  </div>
+
+  <section id="overlay-container">
+    <section id="home" class="page">
+    </section>
+
+    <section id="customers" class="page"></section>
+    <section id="companies" class="page"></section>
+    <section id="partners" class="page"></section>
+    <section id="bookings" class="page"></section>
+    <section id="creditcards" class="page"></section>
+    <section id="help" class="page"></section>
+    <section id="login" class="page"></section>
+    <section id="detailedview" class="page">
+      <div id="detailed-view-container"></div>
+    </section>
+    <section id="private-booking"></section>
   </section>
-  <section id="private-booking"></section>
   <!-- create user page -->
   <section id="create" class="page">
     <header class="topbar">

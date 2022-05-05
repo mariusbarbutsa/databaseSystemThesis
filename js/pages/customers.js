@@ -35,7 +35,7 @@ export default class Customers {
           <thead>
             <tr>
               <th>
-                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Name/Surname<img src="/img/svg/order.svg" class="ordericon"></button>
+                <button class="latestbookingsOrderLabel" name="name" value="name" onclick="orderByCustomers(this.value);">Name/Surname<img src="/img/svg/order.svg" class="ordericon"></button>
               </th>
               <th>
                 <div class="latestbookingsOrderLabel">Email address</div>
@@ -50,7 +50,7 @@ export default class Customers {
                 <div class="latestbookingsOrderLabel">Credits</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderByCustomers(this.value);">Created on<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
             
