@@ -61,9 +61,9 @@ window.showDetailView = function (id) {
 };
 
 window.filterByStatus = function (value) {
-  users.filterByStatus(value);
+  partners.filterByStatus(value)
 }
-
+/*WTF*/
 
 // window.orderByStatus = function () {
 //   users.orderByStatus();
