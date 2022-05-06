@@ -61,7 +61,10 @@ button {
 #companies,
 #detailedView,
 #home,
-#detailed-view-container {
+#detailed-view-container,
+#bookingview,
+#creditcards,
+#bookings {
   margin: 0 80px 0 110px;
 }
 
@@ -118,7 +121,7 @@ select::after {
   background-color: var(--blue);
   border-radius: 5px;
   color: var(--white);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -127,7 +130,7 @@ select::after {
   background-color: var(--light-blue);
   border-radius: 5px;
   color: var(--blue);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -930,6 +933,7 @@ td {
   display: flex;
   margin-top: 24px;
   margin-bottom: 40px;
+  align-items: flex-start;
 }
 
 .profile-icon {
@@ -982,6 +986,7 @@ td {
 }
 
 .contact-details {
+  margin-top: 12px;
   font-size: 16px;
 }
 
@@ -1335,3 +1340,27 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 
 /* end of modals */
+
+/*------- Booking detail - Vlada --------*/
+.booking-id {
+  color: var(--gray-blue);
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0;
+}
+
+.profile-section {
+  margin: 12px 0;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+
+.booking-buttons {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}

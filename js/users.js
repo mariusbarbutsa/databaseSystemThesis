@@ -29,6 +29,7 @@ export default class Users {
                 return booking;
             });
             this.appendBooking(this.bookings);
+            this.appendBookings(this.bookings);
             // this.appendCustomerBookings(this.bookings)
         });
     }
@@ -97,6 +98,34 @@ export default class Users {
       `;
         }
         document.querySelector('#fetchedLatestBookings').innerHTML = htmlTemplate;
+        console.log(bookings)
+    }
+
+    appendBookings(bookings) {
+        let htmlTemplate = "";
+        for (let booking of this.bookings) {
+            var timestamp = booking.createdOn;
+            var date = new Date(timestamp);
+            var dateCreated = date;
+            dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
+            
+            var datestamp = booking.serviceDate;
+            var theDate = new Date(datestamp);
+            var serviceDate = theDate;
+            serviceDate = serviceDate.toDateString().split(' ').slice(1).join(' ');
+            htmlTemplate += `
+            <tr>
+              <td>${booking.status}</td>
+              <td class='truncated-text'>${booking.name}</td>
+              <td class='truncated-text'>${booking.alias}</td>
+              <td class='truncated-text'>${booking.type}</td>
+              <td class='truncated-text'>${booking.createdOn}</td>
+              <td class='truncated-text'>${booking.serviceDate}</td>
+              <td>${booking.price}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#fetchedBookings').innerHTML = htmlTemplate;
         console.log(bookings)
     }
 
@@ -293,8 +322,8 @@ export default class Users {
         for (let booking of this.bookings) {
             // console.log(customerObject.name, booking.client)
             if (booking.name == customerObject.name) {
-                htmlTemplate += `
-            <tr>
+                htmlTemplate += /*html*/`
+            <tr onclick="showBooking('${booking.id}'); navigateTo('bookingview')">
               <td>${booking.status}</td>
               <td class='truncated-text'>${booking.alias}</td>
               <td class='truncated-text'>${booking.type}</td>
@@ -314,6 +343,63 @@ export default class Users {
         document.querySelector('#fetchedCustomerBookings').innerHTML = htmlTemplate;
         console.log(this.bookings)
     }
+
+    showBooking(id) {
+        const bookingObject = this.bookings.find((booking) => booking.id == id);
+        document.querySelector("#booking-detail").innerHTML = /*html*/ `
+        <div class="top-content">
+             <div class="breadcrumbs">
+                <a href="#"><img src="../img/svg/home.svg"></a>
+                 <img src="../img/svg/bracket.svg" class="back-bracket">
+                <a href="#customers" class="step-link">Customers</a>
+                <img src="../img/svg/bracket.svg" class="back-bracket">
+                <a href="detailedview" class="step-link">${bookingObject.name}</a>
+                <img src="../img/svg/bracket.svg" class="back-bracket">
+                <a href="#bookingview" class="step-link active-link">${bookingObject.id}</a>
+            </div>
+            <div class="user-display">
+                <p class="username" id='username'></p>
+                <img src="../img/svg/danish-flag.svg" class="flag">
+            </div>
+        </div>
+        <div class="profile-detailed">
+            <img src="../img/svg/raskrask-customers.svg" class="profile-icon">
+            <div class="profile-description">
+            <div class="profile-main">
+                <h2 class="profile-name">Booking</h2>
+                <p class="booking-id">${bookingObject.id}</p>
+            </div>
+            <div class="booking-info">
+            <div class="contact-info">
+            <div class="profile-important">
+                 <p class="profile-section">Type:</p>
+                 <p class="contact-details">${bookingObject.type}</p>
+            </div>
+            
+             <div class="profile-important">
+                <p class="profile-section">Service date:</p>
+                 <p class="contact-details">${bookingObject.serviceDate}</p>
+            </div>
+            <div class="profile-important">
+                  <p class="profile-section">Address:</p>
+                 <p class="contact-details">${bookingObject.address}</p>
+            </div>
+            <div class="profile-important">
+                  <p class="profile-section">Partner:</p>
+                 <p class="contact-details">${bookingObject.alias}</p>
+            </div>
+            </div>
+            <div class="booking-buttons">
+            <a href="#" class="cta-button-light">Edit booking</a>
+            <a href="#" class="cta-button-light space">Cancel booking</a>
+            <a href="#" class="cta-button-light space">Rebook</a>
+            </div>
+            </div>
+            </div>
+            </div>
+        `;
+    }
+
 
          filterByStatus(status) {
     if (status === "Active") {

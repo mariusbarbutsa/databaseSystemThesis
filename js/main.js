@@ -4,6 +4,8 @@ import Users from "./users.js";
 import Customers from "./pages/customers.js";
 import Companies from "./pages/companies.js";
 import Partners from "./pages/partners.js";
+import Bookings from "./pages/bookings.js";
+import CreditCards from "./pages/creditcards.js";
 import LoginPage from "./pages/login.js";
 import authService from "./auth.js";
 
@@ -11,7 +13,9 @@ let _spaService = new SpaService("home");
 let _dashboard = new Dashboard();
 let _customers = new Customers();
 let _companies = new Companies();
-let _partners = new Partners();
+let partners = new Partners();
+let _bookings = new Bookings();
+let _creditcards = new CreditCards();
 let loginPage = new LoginPage();
 let users = new Users();
 
@@ -60,6 +64,9 @@ window.showDetailView = function (id) {
   users.showDetailView(id);
 };
 
+window.showBooking= function (id) {
+  users.showBooking(id);
+};
 
 window.filterByStatus = function (value) {
   partners.filterByStatus(value)
