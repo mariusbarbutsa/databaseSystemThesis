@@ -62,7 +62,7 @@ window.showDetailView = function (id) {
 
 
 window.filterByStatus = function (value) {
-  users.filterByStatus(value);
+  partners.filterByStatus(value)
 }
 // window.orderByStatus = function () {
 //   users.orderByStatus();
