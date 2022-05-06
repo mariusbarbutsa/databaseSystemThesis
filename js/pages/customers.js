@@ -68,7 +68,8 @@ export default class Customers {
     <section class="quick-actions">
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>
-        <a href="#" class="action">
+        <a a href = "javascript:modalDisplay(1);"
+        class = "action" >
           <img src="../img/svg/private-booking.svg" class="action-icon">
           <p class="action-name">Private Booking</p>
          </a>

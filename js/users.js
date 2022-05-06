@@ -285,7 +285,7 @@ export default class Users {
             </div>
             </div>
             <div class="buttons">
-            <a href="#" class="cta-button-dark">Book</a>
+            <a href="javascript:modalDisplay(1);" class="cta-button-dark">Book</a>
             <a href="#" class="cta-button-light space">Edit</a>
             </div>
         </div>
@@ -442,14 +442,17 @@ export default class Users {
 
 
     filterByStatus(status) {
-        if (status === "Active") {
-            const activePartners = this.partners.filter(partner => partner.status === status);
-            this.appendPartners(activePartners);
-        } else if (status === "Inactive") {
-            const inactivePartners = this.partners.filter(partner => partner.status === status);
-            this.appendPartners(inactivePartners);
-        } else {
-            this.appendPartners(this.partners)
+        let checkmarks = document.querySelectorAll('.checkbox');
+        for (checkmark of checkmarks) {
+            if (status === "Active") {
+                const activePartners = this.partners.filter(partner => partner.status === status);
+                this.appendPartners(activePartners);
+            } else if (status === "Inactive") {
+                const inactivePartners = this.partners.filter(partner => partner.status === status);
+                this.appendPartners(inactivePartners);
+            } else {
+                this.appendPartners(this.partners)
+            }
         }
 
     }

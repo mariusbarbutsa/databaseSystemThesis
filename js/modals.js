@@ -1,15 +1,15 @@
 import authService from "./auth.js";
 
 export default class Modals {
-    constructor() {
-        this.template();
-        this.authService = authService;
-        // this.dateDisplay();
-    }
+  constructor() {
+    this.template();
+    this.authService = authService;
+    // this.dateDisplay();
+  }
 
-    template() {
+  template() {
 
-        document.querySelector("#modals").innerHTML += /*html*/ `
+    document.querySelector("#modals").innerHTML += /*html*/ `
     <div id="overlay">
     <div id="popup"><a href="javascript:modalDisplay(0);"><img class="close-modal" src="/img/svg/close-modal.svg"></a>
       <div class="modal-flexbox">
@@ -150,11 +150,11 @@ export default class Modals {
         <p class="filter-category">Status</p>
         <div class="checkbox-flex-divider">
           <label class="container margin-check">Active
-            <input type="checkbox" checked="checked" value="Active">
+            <input class='checkbox' type="checkbox" checked="checked" value="Active">
             <span class="checkmark"></span>
           </label>
           <label class="container">Inactive
-            <input type="checkbox" value="Inactive">
+            <input class='checkbox' type="checkbox" value="Inactive">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -242,6 +242,6 @@ export default class Modals {
 
 
 
-    }
+  }
 
 }

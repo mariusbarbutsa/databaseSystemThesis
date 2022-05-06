@@ -66,7 +66,7 @@ window.showDetailView = function (id) {
   users.showDetailView(id);
 };
 
-window.showBooking= function (id) {
+window.showBooking = function (id) {
   users.showBooking(id);
 };
 
@@ -100,10 +100,7 @@ window.createUser = () => {
   let price = Math.floor(100 + Math.random() * 900);
   let fakturaNumber = Math.floor(1000000 + Math.random() * 9000000);
   let status = 'Active';
-  var date2 = new Date(serviceDate);
-  var serviceDateVar = date2;
-  serviceDateVar = serviceDateVar.toDateString().split(' ').slice(1).join(' ');
-  console.log(serviceDateVar);
+  // serviceDateVar = serviceDateVar.toDateString().split(' ').slice(1).join(' ');
   console.log(date.value)
   console.log(credits)
   console.log(alias.value)

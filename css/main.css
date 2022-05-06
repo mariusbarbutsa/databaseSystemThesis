@@ -616,6 +616,22 @@ a.active-menu path {
 
 }
 
+.dashboardBox {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--white);
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  border-radius: 7px;
+  left: 60px;
+  padding-bottom: 6px;
+}
+
+.dashboardBookings {
+  position: relative;
+  width: 851px;
+  height: 424px;
+}
+
 .latestbookingsTitle {
   font-weight: 600;
   font-size: 24px;
@@ -1347,6 +1363,18 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 /* end of modals */
 
+.help-page-text {
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 600;
+}
+
 /*------- Booking detail - Vlada --------*/
 .booking-id {
   color: var(--gray-blue);
@@ -1364,9 +1392,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 
 .booking-buttons {
-    margin-top: 12px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin-bottom: 16px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 16px;
 }
