@@ -39,6 +39,7 @@ body {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 h1 {
@@ -443,7 +444,7 @@ a.active-menu path {
 }
 
 .functions {
-  width: 800px;
+  width: 850px;
   height: 174px;
   display: flex;
   flex-direction: row;
@@ -452,14 +453,14 @@ a.active-menu path {
 }
 
 .function-box {
-  width: 146px;
+  width: 151px;
   height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: first baseline;
   background-color: var(--light-blue);
   padding: 20px 0;
-  margin: 0 8px;
+  margin: 0 12px;
   border-radius: 7px;
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.03);
 }
@@ -596,13 +597,15 @@ a.active-menu path {
 
 .latestbookingsBox {
   position: relative;
-  width: 800px;
+  width: fit-content;
   height: auto;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
   padding-bottom: 6px;
 }
+
+
 
 .latestbookingsContent {
   text-align: left;
@@ -623,7 +626,7 @@ a.active-menu path {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 120px;
+  max-width: 80px;
 }
 
 .latestbookingsOrderLabel {
@@ -695,6 +698,7 @@ tr:hover {
 }
 
 table {
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
@@ -1159,12 +1163,12 @@ td {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color:var(--light-blue);
+.container:hover input~.checkmark {
+  background-color: var(--light-blue);
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   background-color: var(--blue);
 }
 

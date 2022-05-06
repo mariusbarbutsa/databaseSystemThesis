@@ -8,6 +8,7 @@ import Bookings from "./pages/bookings.js";
 import CreditCards from "./pages/creditcards.js";
 import LoginPage from "./pages/login.js";
 import authService from "./auth.js";
+import Modals from "./modals.js";
 
 let _spaService = new SpaService("home");
 let _dashboard = new Dashboard();
@@ -18,6 +19,7 @@ let _bookings = new Bookings();
 let _creditcards = new CreditCards();
 let loginPage = new LoginPage();
 let users = new Users();
+let modals = new Modals();
 
 let _selectedUserId = "";
 let _selectedImgFile = "";
@@ -76,19 +78,37 @@ window.filterByStatus = function (value) {
 // }
 
 window.createUser = () => {
+  document.getElementById('overlay').style.display = 'none';
   // references to the input fields
+  var date = new Date();
+  var createdOn = date;
+  createdOn = createdOn.toDateString().split(' ').slice(1).join(' ');
+  let paymentTypes = ['Mobile Pay', 'Bank account', 'Cash'];
+  let payment = paymentTypes[Math.floor((Math.random() * paymentTypes.length))];
   let nameInput = document.querySelector('#name');
   let emailInput = document.querySelector('#email');
-  let phoneNr = document.querySelector('#phone');
+  let phone = document.querySelector('#phone');
+  let phoneCode = document.querySelector('#phone-code')
+  let phoneNr = phoneCode.value + ' ' + phone.value;
   let address = document.querySelector('#address');
-  let date = document.querySelector('#date');
-  let balance = Math.floor(100 + Math.random() * 900);
-  let credits = Math.floor(200 + Math.random() * 900);
+  let balance = Math.floor(200 + Math.random() * 900);
+  let credits = Math.floor(300 + Math.random() * 900);
+  let alias = document.querySelector('.partner');
+  let service = document.querySelector('#service');
+  let type = document.querySelector('#serviceType');
+  let serviceDate = document.querySelector('#date');
+  let price = Math.floor(100 + Math.random() * 900);
+  let fakturaNumber = Math.floor(1000000 + Math.random() * 9000000);
   let status = 'Active';
+  var date2 = new Date(serviceDate);
+  var serviceDateVar = date2;
+  serviceDateVar = serviceDateVar.toDateString().split(' ').slice(1).join(' ');
+  console.log(serviceDateVar);
   console.log(date.value)
   console.log(credits)
+  console.log(alias.value)
+  users.create(nameInput.value, emailInput.value, phoneNr, address.value, createdOn, balance, credits, status, alias.value, service.value, type.value, serviceDate.value, price, payment, fakturaNumber);
 
-  users.create(nameInput.value, emailInput.value, phoneNr.value, address.value, date.value, balance, credits, status);
   _spaService.navigateTo("home");
 }
 

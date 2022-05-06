@@ -1,6 +1,7 @@
 import {
     firebaseDB
-} from "./firebase-service.js";
+}
+from "./firebase-service.js";
 
 export default class Users {
     constructor() {
@@ -85,15 +86,15 @@ export default class Users {
             var date = new Date(timestamp);
             var dateCreated = date;
             dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
-            htmlTemplate += `
+            htmlTemplate += /*html*/ `
             <tr>
-              <td>${booking.status}</td>
+              <td class='truncated-text'>${booking.status}</td>
               <td class='truncated-text'>${booking.payment}</td>
               <td class='truncated-text'>${booking.type}</td>
-              <td>${booking.fakturaNumber}</td>
+              <td class='truncated-text'>${booking.fakturaNumber}</td>
               <td class='truncated-text'>${booking.name}</td>
               <td class='truncated-text'>${dateCreated}</td>
-              <td>${booking.price}</td>
+              <td class='truncated-text'>${booking.price}</td>
             </tr>
       `;
         }
@@ -108,7 +109,7 @@ export default class Users {
             var date = new Date(timestamp);
             var dateCreated = date;
             dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
-            
+
             var datestamp = booking.serviceDate;
             var theDate = new Date(datestamp);
             var serviceDate = theDate;
@@ -322,7 +323,7 @@ export default class Users {
         for (let booking of this.bookings) {
             // console.log(customerObject.name, booking.client)
             if (booking.name == customerObject.name) {
-                htmlTemplate += /*html*/`
+                htmlTemplate += /*html*/ `
             <tr onclick="showBooking('${booking.id}'); navigateTo('bookingview')">
               <td>${booking.status}</td>
               <td class='truncated-text'>${booking.alias}</td>
@@ -401,19 +402,18 @@ export default class Users {
     }
 
 
-         filterByStatus(status) {
-    if (status === "Active") {
-        const activePartners = this.partners.filter(partner => partner.status === status);
-        this.appendPartners(activePartners);
-    } 
-    else if (status === "Inactive") {
-        const inactivePartners = this.partners.filter(partner => partner.status === status);
-        this.appendPartners(inactivePartners);
-    } else {
-        this.appendPartners(this.partners)
-     }
-    }
+    filterByStatus(status) {
+        if (status === "Active") {
+            const activePartners = this.partners.filter(partner => partner.status === status);
+            this.appendPartners(activePartners);
+        } else if (status === "Inactive") {
+            const inactivePartners = this.partners.filter(partner => partner.status === status);
+            this.appendPartners(inactivePartners);
+        } else {
+            this.appendPartners(this.partners)
+        }
 
+    }
 
     // order function - Marius
     orderBy(value) {
@@ -449,7 +449,7 @@ export default class Users {
             var date2 = new Date(timestamp2);
             var dateCreated1 = date1;
             var dateCreated2 = date2;
-            return dateCreated1 - dateCreated2
+            return dateCreated2 - dateCreated1
         });
         this.appendBooking(this.bookings);
     }
@@ -491,7 +491,7 @@ export default class Users {
             var date2 = new Date(timestamp2);
             var dateCreated1 = date1;
             var dateCreated2 = date2;
-            return dateCreated1 - dateCreated2
+            return dateCreated2 - dateCreated1
         });
         this.appendCustomer(this.customers);
     }
@@ -624,7 +624,7 @@ export default class Users {
 
     // ========== CREATE ==========
     // add a new user to firestore (database)
-    create(name, email, phone, address, createdOn, balance, credits, status) {
+    create(name, email, phone, address, createdOn, balance, credits, status, alias, service, type, serviceDate, price, payment, fakturaNumber) {
 
         this.customerRef.add({
             name,
@@ -635,6 +635,22 @@ export default class Users {
             balance,
             credits,
             status
+
+        });
+
+        this.bookingRef.add({
+            name,
+            alias,
+            service,
+            type,
+            address,
+            createdOn,
+            serviceDate,
+            price,
+            status,
+            payment,
+            fakturaNumber,
+            balance
 
         });
     }
