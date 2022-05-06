@@ -538,11 +538,18 @@ export default class Users {
 
     // ========== CREATE ==========
     // add a new user to firestore (database)
-    create(name, mail, img) {
-        this.userRef.add({
+    create(name, email, phone, address, createdOn, balance, credits, status) {
+
+        this.customerRef.add({
             name,
-            mail,
-            img
+            email,
+            phone,
+            address,
+            createdOn,
+            balance,
+            credits,
+            status
+
         });
     }
 

@@ -70,6 +70,47 @@ input {
   border: 1px solid var(--medium-gray);
   border-radius: 7px;
   text-indent: 12px;
+  font-family: "Source Sans Pro",
+    Helvetica,
+    Arial,
+    sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+textarea {
+  font-family: "Source Sans Pro",
+    Helvetica,
+    Arial,
+    sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+select::after {
+  font-family: "Source Sans Pro",
+    Helvetica,
+    Arial,
+    sans-serif !important;
+  text-decoration: none;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+
+.cta-button-green {
+  display: inline-block;
+  color: var(--blue);
+  background-color: var(--green);
+  text-align: center;
+  border-radius: 7px;
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .cta-button-dark {
@@ -219,6 +260,10 @@ nav {
 }
 
 ::placeholder {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
   color: var(--medium-gray);
 }
 
@@ -1139,8 +1184,9 @@ td {
 
 #popup {
   position: absolute;
-  width: 676px;
-  height: 686px;
+  width: fit-content;
+  display: inline-block;
+  height: fit-content;
   background: var(--white);
   border-radius: 7px;
   left: 0px;
@@ -1165,6 +1211,7 @@ td {
 .modal-heading-text {
   font-size: 24px;
   font-weight: 600;
+  line-height: 0;
   text-align: left;
 }
 
@@ -1186,6 +1233,7 @@ td {
   line-height: 0;
   margin-bottom: 16px;
 }
+
 
 .red {
   color: var(--red);
@@ -1232,7 +1280,7 @@ td {
 }
 
 .modal-field-select-field {
-  width: 286px;
+  width: 293px;
   height: 38px;
   background-color: var(--background-color);
   border: 1px solid var(--medium-gray);
@@ -1250,6 +1298,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="time"]::-webkit-calendar-picker-indicator {
   background-image: url('/img/svg/clock-time.svg');
   padding-right: 8px;
+}
+
+.modal-form-notes {
+  background-color: var(--background-color);
+  border: 1px solid var(--medium-gray);
+  border-radius: 7px;
+  width: 584px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-checkbox-reminder {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-checkbox-label {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.cta-arrow {
+  margin-left: 40px;
+}
+
+.button-alignment {
+  margin-top: 24px;
+  display: flex;
+  justify-content: right;
 }
 
 

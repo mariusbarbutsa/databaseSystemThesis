@@ -184,7 +184,8 @@
 
           <div class="modal-form-field right-margin">
             <p class="modal-field-label">Customer name<span class="red">*</span></p>
-            <input type="text" name="name" placeholder="e.g. Glenn Vestergaard" class="modal-field-text" required>
+            <input type="text" id="name" name="name" placeholder="e.g. Glenn Vestergaard" class="modal-field-text"
+              required>
           </div>
 
           <div class="modal-form-field">
@@ -195,7 +196,8 @@
                 <option>+46</option>
                 <option>+47</option>
               </select>
-              <input type="number" name="number" placeholder="e.g. 91932323" class="modal-field-number" required>
+              <input type="number" id="phone" name="number" placeholder="e.g. 91932323" class="modal-field-number"
+                required>
             </div>
           </div>
 
@@ -205,13 +207,14 @@
 
           <div class="modal-form-field right-margin">
             <p class="modal-field-label">Email<span class="red">*</span></p>
-            <input type="email" name="email" placeholder="e.g. glennvestergaar@gmail.com" class="modal-field-text"
-              required>
+            <input type="email" id="email" name="email" placeholder="e.g. glennvestergaar@gmail.com"
+              class="modal-field-text" required>
           </div>
 
-          <div class="modal-form-field right-margin">
+          <div class="modal-form-field">
             <p class="modal-field-label">Address<span class="red">*</span></p>
-            <input type="text" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-text" required>
+            <input type="text" id="address" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-text"
+              required>
           </div>
 
         </div>
@@ -221,13 +224,14 @@
 
           <div class="modal-form-field right-margin-half">
             <p class="modal-field-label">Date<span class="red">*</span></p>
-            <input type="date" name="email" placeholder="e.g. glennvestergaar@gmail.com" class="modal-field-date"
-              required>
+            <input type="date" id="date" name="email" placeholder="e.g. glennvestergaar@gmail.com"
+              class="modal-field-date" required>
           </div>
 
-          <div class="modal-form-field right-margin">
+          <div class="modal-form-field ">
             <p class="modal-field-label">Time<span class="red">*</span></p>
-            <input type="time" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-date" required>
+            <input type="time" id="time" name="address" placeholder="e.g. Damagervej 12A" class="modal-field-date"
+              required>
           </div>
 
         </div>
@@ -237,15 +241,15 @@
           <div class="modal-form-field right-margin">
             <p class="modal-field-label">Customer name<span class="red">*</span></p>
             <select class="modal-field-select-field" id="fetchedPartnerAlias" required>
-              <option value="" disabled selected hidden>Choose a partner</option>
+              <option id="partner" value="" disabled selected hidden>Choose a partner</option>
 
 
             </select>
           </div>
 
-          <div class="modal-form-field right-margin">
+          <div class="modal-form-field">
             <p class="modal-field-label">Customer name<span class="red">*</span></p>
-            <select class="modal-field-select-field" id="fetchedPartnerAlias" required>
+            <select id="service" class="modal-field-select-field" id="fetchedPartnerAlias" required>
               <option value="" disabled selected hidden>Choose the service</option>
               <option>Massage</option>
               <option>Yoga Training</option>
@@ -256,8 +260,51 @@
             </select>
           </div>
 
+
         </div>
 
+        <div class="modal-form-row">
+
+
+          <div class="modal-form-field right-margin">
+            <p class="modal-field-label">Discount</p>
+            <div class="modal-field-phone">
+              <select id="discount" value="+45" class="modal-field-select right-margin-half">
+                <option value="" disabled selected hidden>Select</option>
+                <option>Gift Card</option>
+                <option>Klippe Card</option>
+                <option>Promocode</option>
+              </select>
+              <input type="text" name="discount" placeholder="e.g. 91932323" class="modal-field-number" required>
+            </div>
+          </div>
+
+          <div class="modal-form-field">
+            <p class="modal-field-label">Service type<span class="red">*</span></p>
+            <select id="serviceType" class="modal-field-select-field" id="fetchedPartnerAlias" required>
+              <option value="" disabled selected hidden>Choose the service type</option>
+              <option>Massage</option>
+              <option>Yoga Training</option>
+              <option>Hairdresser</option>
+              <option>Personal training</option>
+
+
+            </select>
+          </div>
+
+        </div>
+        <p class="modal-field-label">Notes to the partner</p>
+        <textarea class="modal-form-notes" name="notes" rows="3" placeholder="Type your message here"></textarea>
+        <div class="modal-checkbox-reminder">
+          <input type="checkbox" class="modal-form-checkbox" name="Reminder" value="Reminder">
+          <label class="modal-checkbox-label" for="Reminder">Should the customer receive booking confirmation and
+            reminders by
+            SMS?</label>
+        </div>
+        <div class="button-alignment">
+          <a class="cta-button-green" onclick="createUser()">Book now<img class="cta-arrow"
+              src="/img/svg/arrow-button.svg" alt="arrow"></a>
+        </div>
 
       </div>
     </div>
@@ -269,90 +316,90 @@
       <div class="filter-flexbox-first">
         <p class="filter-category">Status</p>
         <div class="checkbox-flex-divider">
-        <label class="container margin-check">Active
-          <input type="checkbox" checked="checked" value="Active">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Inactive
-          <input type="checkbox" value="Inactive">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Active
+            <input type="checkbox" checked="checked" value="Active">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Inactive
+            <input type="checkbox" value="Inactive">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
 
-       <div class="filter-flexbox">
+      <div class="filter-flexbox">
         <p class="filter-category">Speciality</p>
         <div class="checkbox-flex">
-        <label class="container margin-check">Masseur
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Hairdresser
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Masseur
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Hairdresser
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
         <div class="checkbox-flex-divider">
-        <label class="container margin-check">Trainer
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Yoga Teacher
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Trainer
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Yoga Teacher
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
 
-         <div class="filter-flexbox">
+      <div class="filter-flexbox">
         <p class="filter-category">RAB</p>
         <div class="checkbox-flex-divider">
-        <label class="container margin-check">Yes
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">No
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Yes
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">No
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
 
-       <div class="filter-flexbox">
+      <div class="filter-flexbox">
         <p class="filter-category">VAT</p>
         <div class="checkbox-flex-divider">
-        <label class="container margin-check">Not Applicable
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Liable
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Not Applicable
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Liable
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
 
       <div class="filter-flexbox">
         <p class="filter-category">Share</p>
         <div class="checkbox-flex">
-        <label class="container margin-check">Platinum
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Gold
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Platinum
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Gold
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
         <div class="checkbox-flex-divider">
-        <label class="container margin-check">Silver
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">Bronze
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
+          <label class="container margin-check">Silver
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Bronze
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
       <a class="filter-btn btn-infilter" onclick="filterByStatus(this.value)">Apply</a>
@@ -384,7 +431,7 @@
     </header>
     <form>
       <input type="text" id="name" placeholder="Type your name" required>
-      <input type="email" id="mail" placeholder="Type your mail" required>
+      <input type="email" id="email" placeholder="Type your mail" required>
       <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')">
       <img id="imagePreview" class="image-preview">
       <button type="button" name="button" onclick="createUser()">Save User</button>

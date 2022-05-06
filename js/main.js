@@ -11,7 +11,7 @@ let _spaService = new SpaService("home");
 let _dashboard = new Dashboard();
 let _customers = new Customers();
 let _companies = new Companies();
-let partners = new Partners();
+let _partners = new Partners();
 let loginPage = new LoginPage();
 let users = new Users();
 
@@ -60,11 +60,10 @@ window.showDetailView = function (id) {
   users.showDetailView(id);
 };
 
+
 window.filterByStatus = function (value) {
   users.filterByStatus(value);
 }
-
-
 // window.orderByStatus = function () {
 //   users.orderByStatus();
 // }
@@ -72,9 +71,17 @@ window.filterByStatus = function (value) {
 window.createUser = () => {
   // references to the input fields
   let nameInput = document.querySelector('#name');
-  let mailInput = document.querySelector('#mail');
-  let imageInput = document.querySelector('#imagePreview');
-  _userService.create(nameInput.value, mailInput.value, imageInput.src);
+  let emailInput = document.querySelector('#email');
+  let phoneNr = document.querySelector('#phone');
+  let address = document.querySelector('#address');
+  let date = document.querySelector('#date');
+  let balance = Math.floor(100 + Math.random() * 900);
+  let credits = Math.floor(200 + Math.random() * 900);
+  let status = 'Active';
+  console.log(date.value)
+  console.log(credits)
+
+  users.create(nameInput.value, emailInput.value, phoneNr.value, address.value, date.value, balance, credits, status);
   _spaService.navigateTo("home");
 }
 
