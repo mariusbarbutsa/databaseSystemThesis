@@ -315,6 +315,19 @@ export default class Users {
         console.log(this.bookings)
     }
 
+         filterByStatus(status) {
+    if (status === "Active") {
+        const activePartners = this.partners.filter(partner => partner.status === status);
+        this.appendPartners(activePartners);
+    } 
+    else if (status === "Inactive") {
+        const inactivePartners = this.partners.filter(partner => partner.status === status);
+        this.appendPartners(inactivePartners);
+    } else {
+        this.appendPartners(this.partners)
+     }
+    }
+
 
     // order function - Marius
     orderBy(value) {

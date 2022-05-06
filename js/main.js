@@ -11,7 +11,7 @@ let _spaService = new SpaService("home");
 let _dashboard = new Dashboard();
 let _customers = new Customers();
 let _companies = new Companies();
-let _partners = new Partners();
+let partners = new Partners();
 let loginPage = new LoginPage();
 let users = new Users();
 
@@ -59,6 +59,10 @@ window.searchCompanies = function (value) {
 window.showDetailView = function (id) {
   users.showDetailView(id);
 };
+
+window.filterByStatus = function (value) {
+  users.filterByStatus(value);
+}
 
 
 // window.orderByStatus = function () {
@@ -163,6 +167,17 @@ window.modalDisplay = function (state) {
   /* state can be 1 or 0 */
   var bluredContainer = document.getElementById('overlay-container');
   var overlayElement = document.getElementById('overlay');
+
+  if (state) {
+    overlayElement.style.display = 'block';
+  } else {
+    overlayElement.style.display = 'none';
+  }
+};
+
+window.filterDisplay = function (state) {
+  /* state can be 1 or 0 */
+  var overlayElement = document.getElementById('overlay-filter');
 
   if (state) {
     overlayElement.style.display = 'block';

@@ -21,8 +21,11 @@ export default class Partners {
      <h1 class="heading">PARTNER LIST</h2>
     <div class="item-amount">
     <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCustomers(this.value)" class='customerSearch'/></div>
-     <div class='search-flex-numbers'><span id="partner-amount"></span>
+    <div class="filter-flex">
+    <div class='search-flex-numbers'><span id="partner-amount"></span>
      <p class="item-total">partners</p></div>
+     <a href="javascript:filterDisplay(1);" class="filter-btn"><img src="../img/svg/filter.svg" class="filter-icon">Filter</a>
+     </div>
      </div>
      
       <section class="partnersBox">
@@ -72,8 +75,5 @@ export default class Partners {
 
 </div>
     `;
-
   }
-
-
 }
