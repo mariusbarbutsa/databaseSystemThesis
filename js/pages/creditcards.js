@@ -11,7 +11,7 @@ export default class CreditCards {
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
-        <a href="#companies" class="step-link active-link">Companies</a>
+        <a href="#creditcards" class="step-link active-link">Credit Cards</a>
         </div>
         <div class="user-display">
         <p class="username" id='username'></p>
@@ -19,12 +19,12 @@ export default class CreditCards {
         </div>
         </div>
 
-     <h1 class="heading">COMPANY LIST</h2>
+     <h1 class="heading">CREDIT CARD LIST</h2>
 
      <div class="item-amount">
     <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCompanies(this.value)" class='customerSearch'/></div>
-     <div class='search-flex-numbers'><span id="company-amount"></span>
-     <p class="item-total">companies</p></div>
+     <div class='search-flex-numbers'><span id="creditCards-amount"></span>
+     <p class="item-total">credit cards</p></div>
      </div>
 
      <div class="page-layout">
@@ -34,32 +34,29 @@ export default class CreditCards {
           <thead>
             <tr>
               <th>
-                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Name<img src="/img/svg/order.svg" class="ordericon"></button>
+                <div class="latestbookingsOrderLabel">Credit Account</div>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Admin Name</div>
+                <div class="latestbookingsOrderLabel">Purchaser's Name</div>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Email address</div>
+                <div class="latestbookingsOrderLabel">Type</div>
               </th>
               <th>
-                <div class="truncated-text latestbookingsOrderLabel">Phone number</div>
+                <div class="latestbookingsOrderLabel">Credits Bought</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Price exc. VAT<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+                <div class="latestbookingsOrderLabel">Credits Left</div>
               </th>
-                 <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Price<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+              <th>
+                <div class="latestbookingsOrderLabel">Balance</div>
               </th>
-                <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Booking<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+              <th>
+                <div class="latestbookingsOrderLabel">Created on</div>
               </th>
             </tr>
           </thead>
-          <tbody id="fetchedCompanies">
+          <tbody id="fetchedCards">
           </tbody>
           </tr>
         </table>
@@ -72,12 +69,12 @@ export default class CreditCards {
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>
         <a href="#" class="action">
-          <img src="../img/svg/create-company.svg" class="action-icon">
-          <p class="action-name">Create Company</p>
+          <img src="../img/svg/create-card.svg" class="action-icon">
+          <p class="action-name">Create Card</p>
          </a>
-         <a href="#" class="action">
-          <img src="../img/svg/company-booking.svg" class="action-icon">
-          <p class="action-name">Book Company</p>
+             <a href="#" class="action">
+          <img src="../img/svg/create-promocode.svg" class="action-icon">
+          <p class="action-name">Create Promo Code</p>
          </a>
        </div>
        </section>

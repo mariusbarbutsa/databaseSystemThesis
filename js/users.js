@@ -9,14 +9,17 @@ export default class Users {
         this.customerRef = firebaseDB.collection("customers");
         this.companiesRef = firebaseDB.collection("companies");
         this.partnersRef = firebaseDB.collection("partners");
+        this.creditCardsRef = firebaseDB.collection("creditcards");
         this.readBookings();
         this.readCustomers();
         this.readCompanies();
         this.readPartners();
+        this.readCreditCards();
         this.bookings = [];
         this.customers = [];
         this.companies = [];
         this.partners = [];
+        this.creditCards = [];
     }
 
     readBookings() {
@@ -31,6 +34,9 @@ export default class Users {
             });
             this.appendBooking(this.bookings);
             this.appendBookings(this.bookings);
+            let bookingAmount = this.bookings.length;
+            console.log(bookingAmount)
+            document.querySelector("#booking-amount").innerHTML = bookingAmount;
             // this.appendCustomerBookings(this.bookings)
         });
     }
@@ -77,8 +83,22 @@ export default class Users {
         });
     }
 
+        readCreditCards() {
 
-    // append bookings to the DOM
+        this.creditCardsRef.onSnapshot(snapshotData => {
+            this.creditCards = snapshotData.docs.map(doc => {
+                const creditCard = doc.data();
+                creditCard.id = doc.id;
+                return creditCard;
+            });
+            this.appendCreditCards(this.creditCards);
+            let creditCardsAmount = this.creditCards.length;
+            document.querySelector("#creditCards-amount").innerHTML = creditCardsAmount;
+        });
+    }
+
+
+    // append latest orders to the DOM
     appendBooking(bookings) {
         let htmlTemplate = "";
         for (let booking of this.bookings) {
@@ -172,7 +192,8 @@ export default class Users {
         document.querySelector('#fetchedCompanies').innerHTML = htmlTemplate;
         console.log(companies)
     }
-    // append companies to the DOM
+
+    // append partners to the DOM
     appendPartners(partners) {
         let htmlTemplate = "";
         let attachPartners = "";
@@ -202,6 +223,24 @@ export default class Users {
         console.log(partners)
     }
 
+     appendCreditCards(cards) {
+        let htmlTemplate = "";
+        for (let card of cards) {
+            htmlTemplate += `
+            <tr>
+              <td>${card.account}</td>
+              <td class='truncated-text'>${card.name}</td>
+              <td class='truncated-text'>${card.type}</td>
+              <td class='truncated-text'>${card.creditsBought}</td>
+              <td class='truncated-text'>${card.creditsLeft}</td>
+              <td class='truncated-text'>${card.balance} DKK</td>
+              <td>${card.createdOn}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#fetchedCards').innerHTML = htmlTemplate;
+        console.log(bookings)
+    }
 
 
 

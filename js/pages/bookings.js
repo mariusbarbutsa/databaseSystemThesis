@@ -23,7 +23,7 @@ export default class Bookings {
 
      <div class="item-amount">
     <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCompanies(this.value)" class='customerSearch'/></div>
-     <div class='search-flex-numbers'><span id="company-amount"></span>
+     <div class='search-flex-numbers'><span id="booking-amount"></span>
      <p class="item-total">bookings</p></div>
      </div>
 
@@ -34,28 +34,25 @@ export default class Bookings {
           <thead>
             <tr>
               <th>
-                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Name<img src="/img/svg/order.svg" class="ordericon"></button>
+                <div class="latestbookingsOrderLabel"">Status<img src="/img/svg/order.svg" class="ordericon"></button>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Admin Name</div>
+                <div class="latestbookingsOrderLabel">Name</div>
               </th>
               <th>
-                <div class="latestbookingsOrderLabel">Email address</div>
+                <div class="latestbookingsOrderLabel">Partner</div>
               </th>
               <th>
-                <div class="truncated-text latestbookingsOrderLabel">Phone number</div>
+                <div class="latestbookingsOrderLabel">Type</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Price exc. VAT<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+                <div class="latestbookingsOrderLabel">Booking date</div>
               </th>
-                 <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Price<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+               <th>
+                <div class="latestbookingsOrderLabel">Service date</div>
               </th>
-                <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Booking<img src="/img/svg/order.svg"
-                    class="ordericon"></button>
+               <th>
+                <div class="latestbookingsOrderLabel">Total incl.VAT</div>
               </th>
             </tr>
           </thead>
@@ -71,6 +68,18 @@ export default class Bookings {
     <section class="quick-actions">
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>
+       <a href="#" class="action">
+          <img src="../img/svg/private-booking.svg" class="action-icon">
+          <p class="action-name">Private Booking</p>
+         </a>
+           <a href="#" class="action">
+          <img src="../img/svg/create-card.svg" class="action-icon">
+          <p class="action-name">Create Card</p>
+         </a>
+             <a href="#" class="action">
+          <img src="../img/svg/create-promocode.svg" class="action-icon">
+          <p class="action-name">Create Promo Code</p>
+         </a>
         <a href="#" class="action">
           <img src="../img/svg/create-company.svg" class="action-icon">
           <p class="action-name">Create Company</p>
