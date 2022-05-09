@@ -290,6 +290,7 @@ export default class Users {
         </div>
 
         <div class="page-layout">
+        <section class='detailedview-side'>
       <section class="customersBox">
       <div class="latestbookingsContent">
       <p class="latestbookingsTitle">Bookings</p>
@@ -327,6 +328,42 @@ export default class Users {
         </table>
       </div>
       </section>
+
+ <section class="customersBox">
+      <div class="latestbookingsContent">
+      <p class="latestbookingsTitle">Credit Cards</p>
+        <table class='table-customers'>
+          <thead>
+            <tr>
+              <th>
+                <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Klippekort/gavekode<img src="/img/svg/order.svg" class="ordericon"></button>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Type of card</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Created on</div>
+              </th>
+              <th>
+                <div class="truncated-text latestbookingsOrderLabel">Credits left</div>
+              </th>
+              <th>
+                <div class="latestbookingsOrderLabel">Credits bought</div>
+              </th>
+              <th>
+                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Balance<img src="/img/svg/order.svg"
+                    class="ordericon"></button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="fetchedCustomerCreditCards">
+          </tbody>
+          </tr>
+        </table>
+      </div>
+      </section>
+      </section>
+
         <section section class = 'detailedview-side' >
        <section class="notes-box">
         <p class='notes-header'>Notes</p>
@@ -444,6 +481,29 @@ export default class Users {
         }
         document.querySelector('#fetchedCustomerBookings').innerHTML = htmlTemplate;
         console.log(this.bookings)
+
+        let htmlTemplate2 = "";
+        for (let card of this.creditCards) {
+            console.log(customerObject.name, card.name)
+            if (card.name == customerObject.name) {
+                htmlTemplate2 += /*html*/ `
+            <tr onclick = "showBooking('${card.account}'); navigateTo('')">
+            <td class='truncated-text'>${card.account}</td>
+              <td class='truncated-text'>${card.type}</td>
+              <td class='truncated-text'>${card.createdOn}</td>
+              <td class='truncated-text'>${card.creditsLeft}</td>
+              <td class='truncated-text'>${card.creditsBought}</td>
+              <td>${card.balance} DKK</td>
+            </tr>
+      `;
+            }
+        }
+        if (htmlTemplate2 == "") {
+            htmlTemplate2 += `
+       <p class="no-bookings">No current credit cards</p>
+     `
+        }
+        document.querySelector('#fetchedCustomerCreditCards').innerHTML = htmlTemplate2;
     }
 
     showBooking(id) {
