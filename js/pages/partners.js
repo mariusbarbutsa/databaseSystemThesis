@@ -20,7 +20,7 @@ export default class Partners {
 
      <h1 class="heading">PARTNER LIST</h2>
     <div class="item-amount">
-    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCustomers(this.value)" class='customerSearch'/></div>
+    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchPartners(this.value)" class='customerSearch'/></div>
     <div class="filter-flex">
     <div class='search-flex-numbers'><span id="partner-amount"></span>
      <p class="item-total">partners</p></div>

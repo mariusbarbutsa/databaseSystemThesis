@@ -46,15 +46,15 @@ export default class Companies {
                 <div class="truncated-text latestbookingsOrderLabel">Phone number</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Price exc. VAT<img src="/img/svg/order.svg"
+                <button class=" latestbookingsOrderLabel" onclick="orderBy(this.value);">Price exc. VAT<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
                  <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Price<img src="/img/svg/order.svg"
+                <button class=" latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Price<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
                 <th>
-                <button class="truncated-text latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Booking<img src="/img/svg/order.svg"
+                <button class=" latestbookingsOrderLabel" onclick="orderBy(this.value);">Employee Booking<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
             </tr>

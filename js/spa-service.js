@@ -34,7 +34,8 @@ export default class SpaService {
         activeElement.classList.remove("active-menu");
       }
       if (
-        `${pageId}` == "detailedview"
+        `${pageId}` == "detailedview" ||
+        `${pageId}` == "bookingview"
       ) {
         activeMenuCustomer.classList.add("active-menu");
       }

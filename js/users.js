@@ -83,7 +83,7 @@ export default class Users {
         });
     }
 
-        readCreditCards() {
+    readCreditCards() {
 
         this.creditCardsRef.onSnapshot(snapshotData => {
             this.creditCards = snapshotData.docs.map(doc => {
@@ -124,7 +124,7 @@ export default class Users {
 
     appendBookings(bookings) {
         let htmlTemplate = "";
-        for (let booking of this.bookings) {
+        for (let booking of bookings) {
             var timestamp = booking.createdOn;
             var date = new Date(timestamp);
             var dateCreated = date;
@@ -223,7 +223,7 @@ export default class Users {
         console.log(partners)
     }
 
-     appendCreditCards(cards) {
+    appendCreditCards(cards) {
         let htmlTemplate = "";
         for (let card of cards) {
             htmlTemplate += `
@@ -239,7 +239,6 @@ export default class Users {
       `;
         }
         document.querySelector('#fetchedCards').innerHTML = htmlTemplate;
-        console.log(bookings)
     }
 
 
@@ -328,23 +327,86 @@ export default class Users {
         </table>
       </div>
       </section>
+        <section section class = 'detailedview-side' >
+       <section class="notes-box">
+        <p class='notes-header'>Notes</p>
+        <div class='notes-scroll'>
+            <div class='notes-container'>
+            <a href='' class='notes-button'>PINNED</a>
+            <p class='notes-title'>Editing subscription</p>
+            <p class='notes-time'>3 months ago</p>
+            <p class='notes-content'>In the administration when creating or editing a subscription, it is now possible to handle a large number of add-ons. Add-ons to be added can be searched with text matching in handle, name and description.</p>
+            </div>
 
-       <section class="quick-actions">
-       <div class="action-box">
-       <p class="actions-heading">Quick Actions</p>
-        <a href="#" class="action">
-          <img src="../img/svg/private-booking.svg" class="action-icon">
-          <p class="action-name">Private Booking</p>
-         </a>
-         <a href="#" class="action">
-          <img src="../img/svg/create-card.svg" class="action-icon">
-          <p class="action-name">Create Card</p>
-         </a>
-         <a href="#" class="action">
-          <img src="../img/svg/create-promocode.svg" class="action-icon">
-          <p class="action-name">Create Promo Code</p>
-         </a>
-       </div>
+            <div class='notes-container'>
+            <p class='notes-title'>Editing subscription</p>
+            <p class='notes-time'>3 months ago</p>
+            <p class='notes-content'>In the administration when creating or editing a subscription, it is now possible to handle a large number of add-ons. Add-ons to be added can be searched with text matching in handle, name and description.</p>
+            </div>
+
+            <div class='notes-container'>
+            <p class='notes-title'>Editing subscription</p>
+            <p class='notes-time'>3 months ago</p>
+            <p class='notes-content'>In the administration when creating or editing a subscription, it is now possible to handle a large number of add-ons. Add-ons to be added can be searched with text matching in handle, name and description.</p>
+            </div>
+        </div>
+        <a href='#detailedview' class='notes-add-button'>+</a>
+       </section>
+
+       <section class="notes-box">
+        <p class='notes-header'>Timeline</p>
+        <div class='timeline-scroll'>
+            <div class='timeline-container'>
+            <p class='timeline-title'>Gift Card created</p>
+            <p class='timeline-time'>3 April 2022 17:28</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>Booking invoice settled</p>
+            <p class='timeline-time'>2 April 2022 10:35</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>Booking created</p>
+            <p class='timeline-time'>2 April 2022 10:30</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>Booking created</p>
+            <p class='timeline-time'>2 April 2022 10:30</p>
+            </div>
+
+        </div>
+        <a href='#detailedview' class='notes-add-button'>+</a>
+       </section>
+
+        <section class="notes-box">
+        <p class='notes-header'>Communication</p>
+        <div class='timeline-scroll'>
+            <div class='timeline-container'>
+            <p class='timeline-title'>SMS</p>
+            <p class='timeline-time'>3 April 2022 17:28</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>EMAIL</p>
+            <p class='timeline-time'>2 April 2022 10:35</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>EMAIL</p>
+            <p class='timeline-time'>2 April 2022 10:30</p>
+            </div>
+
+            <div class='timeline-container'>
+            <p class='timeline-title'>SMS</p>
+            <p class='timeline-time'>2 April 2022 10:30</p>
+            </div>
+
+        </div>
+        <a href='#detailedview' class='notes-add-button'>+</a>
+       </section>
+
        </section>
 
 
@@ -441,21 +503,23 @@ export default class Users {
     }
 
 
-    filterByStatus(status) {
-        let checkmarks = document.querySelectorAll('.checkbox');
-        for (checkmark of checkmarks) {
-            if (status === "Active") {
-                const activePartners = this.partners.filter(partner => partner.status === status);
-                this.appendPartners(activePartners);
-            } else if (status === "Inactive") {
-                const inactivePartners = this.partners.filter(partner => partner.status === status);
-                this.appendPartners(inactivePartners);
-            } else {
-                this.appendPartners(this.partners)
-            }
-        }
-
-    }
+    // filterByStatus(status) {
+    //     let valueFilter = document.querySelector('input[name="Status"]:checked').value;
+    //     let checkmarks = document.querySelectorAll('.checkbox');
+    //     for (checkmark of checkmarks) {
+    //         const activePartners = this.partners.filter(partner => partner.status === status);
+    //             this.appendPartners(activePartners);
+    //         if (status === "Active") {
+    //             const activePartners = this.partners.filter(partner => partner.status === status);
+    //             this.appendPartners(activePartners);
+    //         } else if (status === "Inactive") {
+    //             const inactivePartners = this.partners.filter(partner => partner.status === status);
+    //             this.appendPartners(inactivePartners);
+    //         } else {
+    //             this.appendPartners(this.partners)
+    //          }
+    //     }
+    // }
 
     // order function - Marius
     orderBy(value) {
@@ -471,7 +535,7 @@ export default class Users {
         }
     }
 
-    // order by environment of the activity function - Marius
+
     orderByStatus() {
         console.log(this.bookings)
 
@@ -504,7 +568,7 @@ export default class Users {
         this.appendBooking(this.bookings);
     }
 
-    // order function - Marius
+
     orderByCustomers(value) {
         console.log(value)
         if (value === "name") {
@@ -514,7 +578,7 @@ export default class Users {
         }
     }
 
-    // order by environment of the activity function - Marius
+
     orderByName() {
 
         this.customers.sort((customer1, customer2) => {
@@ -660,6 +724,85 @@ export default class Users {
 
     }
 
+    searchPartners(value) {
+
+        if (value == "") {
+            this.appendPartners(this.partners);
+
+        } else {
+
+            let searchQuery = value.toLowerCase();
+            let filteredPartners = [];
+
+
+            for (let partner of this.partners) {
+                let alias = partner.alias.toLowerCase();
+                let email = partner.email.toLowerCase();
+                let speciality = partner.speciality.toLowerCase();
+                let area = partner.area.toLowerCase();
+
+                if (alias.includes(searchQuery) || email.includes(searchQuery) || speciality.includes(searchQuery) || area.includes(searchQuery)) {
+                    filteredPartners.push(partner);
+                }
+            }
+            this.appendPartners(filteredPartners);
+
+        }
+
+    }
+
+    searchBookings(value) {
+
+        if (value == "") {
+            this.appendBookings(this.bookings);
+
+        } else {
+
+            let searchQuery = value.toLowerCase();
+            let filteredBookings = [];
+
+
+            for (let booking of this.bookings) {
+                let name = booking.name.toLowerCase();
+                let alias = booking.alias.toLowerCase();
+                let type = booking.type.toLowerCase();
+                let createdOn = booking.createdOn.toLowerCase();
+
+                if (alias.includes(searchQuery) || name.includes(searchQuery) || type.includes(searchQuery) || createdOn.includes(searchQuery)) {
+                    filteredBookings.push(booking);
+                }
+            }
+            this.appendBookings(filteredBookings);
+
+        }
+    }
+
+    searchCreditcards(value) {
+
+        if (value == "") {
+            this.appendCreditCards(this.creditCards);
+
+        } else {
+
+            let searchQuery = value.toLowerCase();
+            let filteredCards = [];
+
+
+            for (let card of this.creditCards) {
+                let name = card.name.toLowerCase();
+                let email = card.email.toLowerCase();
+                let type = card.type.toLowerCase();
+                let createdOn = card.createdOn.toLowerCase();
+
+                if (email.includes(searchQuery) || name.includes(searchQuery) || type.includes(searchQuery) || createdOn.includes(searchQuery)) {
+                    filteredCards.push(card);
+                }
+            }
+            this.appendCreditCards(filteredCards);
+
+        }
+    }
+
 
 
 
@@ -697,17 +840,4 @@ export default class Users {
         });
     }
 
-    // ========== UPDATE ==========
-    update(id, name, mail, img) {
-        this.userRef.doc(id).update({
-            name,
-            mail,
-            img
-        });
-    }
-
-    // ========== DELETE ==========
-    delete(id) {
-        this.userRef.doc(id).delete();
-    }
 }

@@ -22,7 +22,7 @@ export default class Bookings {
      <h1 class="heading">BOOKING LIST</h2>
 
      <div class="item-amount">
-    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCompanies(this.value)" class='customerSearch'/></div>
+    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchBookings(this.value)" class='customerSearch'/></div>
      <div class='search-flex-numbers'><span id="booking-amount"></span>
      <p class="item-total">bookings</p></div>
      </div>

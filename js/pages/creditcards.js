@@ -22,7 +22,7 @@ export default class CreditCards {
      <h1 class="heading">CREDIT CARD LIST</h2>
 
      <div class="item-amount">
-    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCompanies(this.value)" class='customerSearch'/></div>
+    <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchCreditcards(this.value)" class='customerSearch'/></div>
      <div class='search-flex-numbers'><span id="creditCards-amount"></span>
      <p class="item-total">credit cards</p></div>
      </div>

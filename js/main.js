@@ -62,6 +62,18 @@ window.searchCompanies = function (value) {
   users.searchCompanies(value);
 }
 
+window.searchPartners = function (value) {
+  users.searchPartners(value);
+}
+
+window.searchBookings = function (value) {
+  users.searchBookings(value);
+}
+
+window.searchCreditcards = function (value) {
+  users.searchCreditcards(value);
+}
+
 window.showDetailView = function (id) {
   users.showDetailView(id);
 };

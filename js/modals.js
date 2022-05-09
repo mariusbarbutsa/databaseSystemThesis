@@ -150,11 +150,11 @@ export default class Modals {
         <p class="filter-category">Status</p>
         <div class="checkbox-flex-divider">
           <label class="container margin-check">Active
-            <input class='checkbox' type="checkbox" checked="checked" value="Active">
+            <input class='checkbox' name='Status' type="checkbox" checked="checked" value="Active">
             <span class="checkmark"></span>
           </label>
           <label class="container">Inactive
-            <input class='checkbox' type="checkbox" value="Inactive">
+            <input class='checkbox' name='Status' type="checkbox" value="Inactive">
             <span class="checkmark"></span>
           </label>
         </div>

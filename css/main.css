@@ -217,7 +217,7 @@ select::after {
   color: var(--text-color);
 }
 
-/* ---------- topbar styling ---------- */
+/* ---------- topbar styling - Marius ---------- */
 nav {
   z-index: 99999;
 }
@@ -594,7 +594,7 @@ a.active-menu path {
   }
 }
 
-/* recent bookings tab */
+/* recent bookings tab Marius */
 
 
 .latestbookingsBox {
@@ -753,16 +753,18 @@ td {
 
 /* end of recent bookings tab */
 
-/* Customers list */
+/* Customers list Marius */
 
 .customersBox {
-  width: 78%;
-  height: auto;
+  min-width: min-content;
+  max-width: 100%;
+  height: fit-content;
   background-color: var(--white);
   box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
   border-radius: 7px;
   left: 60px;
   padding-bottom: 6px;
+  margin-right: 24px;
 }
 
 .scroll-box-customers {
@@ -862,7 +864,7 @@ td {
 }
 
 
-/* Authentification */
+/* Authentification Marius */
 
 #login {
   background: linear-gradient(258.26deg, #EFF4F5 7.89%, rgba(199, 211, 215, 0) 84.08%, rgba(188, 197, 200, 0) 91.01%) center center fixed;
@@ -1196,7 +1198,7 @@ td {
   right: 16px;
 }
 
-/* Modals */
+/* Modals Marius */
 
 #overlay {
   position: fixed;
@@ -1398,3 +1400,114 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   align-items: flex-end;
   margin-bottom: 16px;
 }
+
+/*------- Notes - Marius --------*/
+
+.detailedview-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 0;
+}
+
+.notes-container,
+.timeline-container {
+  height: fit-content;
+  width: 239px;
+  border-radius: 7px;
+  padding: 16px;
+  background: var(--white);
+  margin-bottom: 12px;
+}
+
+.notes-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 24px;
+  position: static;
+  width: fit-content;
+  background: var(--light-blue);
+  border-radius: 2px;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 13px;
+}
+
+.notes-title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 0;
+  text-align: left;
+}
+
+.notes-time {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 0;
+  display: flex;
+  justify-content: right;
+  color: var(--secondary-text-color);
+}
+
+.notes-content {
+  font-size: 14px;
+  font-weight: 400;
+
+  text-align: left;
+
+}
+
+.notes-add-button {
+  width: 254px;
+  border-radius: 5px;
+  background-color: var(--white);
+  height: 32px;
+  box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.03);
+  color: var(--blue);
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0px 128px;
+}
+
+.notes-scroll {
+  height: 382px;
+  overflow: auto;
+}
+
+.timeline-scroll {
+  height: 212px;
+  overflow: auto;
+}
+
+
+.timeline-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 0;
+  text-align: left;
+}
+
+.timeline-time {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 0;
+  display: flex;
+  justify-content: left;
+  color: var(--secondary-text-color);
+}
+
+.timeline-container {
+  padding: 8px 16px !important;
+}
+
+
+
+/*------- End of notes - Marius --------*/
