@@ -443,6 +443,7 @@ a.active-menu path {
 .content-left {
   display: flex;
   flex-direction: column;
+  margin-right: 20px;
 }
 
 .content-right {

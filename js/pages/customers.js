@@ -50,7 +50,7 @@ export default class Customers {
                 <div class="latestbookingsOrderLabel">Credits</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderByCustomers(this.value);">Created on<img src="/img/svg/order.svg"
+                <button class="latestbookingsOrderLabel" name="date" value="date" onclick="orderByCustomers(this.value);">Created on<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
             
