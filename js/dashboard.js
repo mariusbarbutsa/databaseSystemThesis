@@ -174,7 +174,7 @@ export default class Dashboard {
                 <div class="latestbookingsOrderLabel">Name</div>
               </th>
               <th>
-                <button class="truncated-text latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+                <button class="latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
               <th>
