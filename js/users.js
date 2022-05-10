@@ -37,6 +37,7 @@ export default class Users {
             let bookingAmount = this.bookings.length;
             console.log(bookingAmount)
             document.querySelector("#booking-amount").innerHTML = bookingAmount;
+            this.orderByDate();
             // this.appendCustomerBookings(this.bookings)
         });
     }
@@ -52,6 +53,7 @@ export default class Users {
             let customerAmount = this.customers.length;
             console.log(customerAmount)
             document.querySelector("#customer-amount").innerHTML = customerAmount;
+            this.orderByDateCustomers();
         });
     }
 
@@ -414,7 +416,7 @@ export default class Users {
             </div>
 
         </div>
-        <a href='#detailedview' class='notes-add-button'>+</a>
+
        </section>
 
         <section class="notes-box">
@@ -441,7 +443,7 @@ export default class Users {
             </div>
 
         </div>
-        <a href='#detailedview' class='notes-add-button'>+</a>
+
        </section>
 
        </section>
@@ -581,7 +583,9 @@ export default class Users {
     //     }
     // }
 
-    // order function - Marius
+
+    // order functions - Marius
+
     orderBy(value) {
         console.log(value)
         if (value === "status") {
@@ -680,6 +684,7 @@ export default class Users {
         document.querySelector('#searchedData').innerHTML = htmlTemplate;
     }
 
+    // Search function - Marius
 
     searchedData(value) {
         let searchitem = document.querySelector("#searchedData");
