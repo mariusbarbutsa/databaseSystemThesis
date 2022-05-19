@@ -717,15 +717,15 @@ export default class Users {
             // searchitem.style.display = "none";
             bookingSearch.style.display = "none";
             customerSearch.style.display = "none";
-            document.querySelector('.latestbookingsBox').classList.add("globalSearchBoxCustomers");
+            // document.querySelector('.latestbookingsBox').classList.add("globalSearchBoxCustomers");
         } else {
             // searchitem.style.display = "";
             // bookingSearch.style.display = "";
             // customerSearch.style.display = "";
 
             let searchQuery = value.toLowerCase();
-            let filteredProducts = [];
-            let filteredProductsCustomers = [];
+            let filteredBookings = [];
+            let filteredCustomers = [];
 
             for (let booking of this.bookings) {
                 let name = booking.name.toLowerCase();
@@ -733,9 +733,9 @@ export default class Users {
                 let payment = booking.payment.toLowerCase();
 
                 if (name.includes(searchQuery) || date.includes(searchQuery) || payment.includes(searchQuery)) {
-                    filteredProducts.push(booking);
+                    filteredBookings.push(booking);
                     bookingSearch.style.display = "";
-                    this.appendGlobalSearch(filteredProducts);
+                    this.appendGlobalSearch(filteredBookings);
                 }
             }
 
@@ -745,9 +745,9 @@ export default class Users {
                 let address = customer.address.toLowerCase();
 
                 if (name.includes(searchQuery) || email.includes(searchQuery) || address.includes(searchQuery)) {
-                    filteredProductsCustomers.push(customer);
+                    filteredCustomers.push(customer);
                     customerSearch.style.display = "";
-                    this.appendGlobalSearchCustomers(filteredProductsCustomers);
+                    this.appendGlobalSearchCustomers(filteredCustomers);
                 }
             }
 
