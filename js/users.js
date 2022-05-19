@@ -684,6 +684,27 @@ export default class Users {
         document.querySelector('#searchedData').innerHTML = htmlTemplate;
     }
 
+    appendGlobalSearchCustomers(customers) {
+        let htmlTemplate = "";
+        for (let customer of customers) {
+            var timestamp = customer.createdOn;
+            var date = new Date(timestamp);
+            var dateCreated = date;
+            dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
+            htmlTemplate += /*html*/ `
+            <tr onclick="showDetailView('${customer.id}'); navigateTo('detailedview');">
+              <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.name}</td>
+              <td class='truncated-text' onclick="showDetailView('${customer.id}')">${customer.email}</td>
+              <td class='truncated-text'>${customer.phone}</td>
+              <td>${customer.balance} DKK</td>
+              <td>${customer.credits}</td>
+              <td class='truncated-text'>${dateCreated}</td>
+            </tr>
+      `;
+        }
+        document.querySelector('#searchedDataCustomers').innerHTML = htmlTemplate;
+    }
+
     // Search function - Marius
 
     searchedData(value) {
@@ -693,14 +714,14 @@ export default class Users {
         bookingSearch.style.display = "none";
         customerSearch.style.display = "none";
         if (value == "") {
-            searchitem.style.display = "none";
+            // searchitem.style.display = "none";
             bookingSearch.style.display = "none";
             customerSearch.style.display = "none";
             document.querySelector('.latestbookingsBox').classList.add("globalSearchBoxCustomers");
         } else {
             searchitem.style.display = "";
-            bookingSearch.style.display = "";
-            customerSearch.style.display = "";
+            // bookingSearch.style.display = "";
+            // customerSearch.style.display = "";
 
             let searchQuery = value.toLowerCase();
             let filteredProducts = [];
@@ -713,6 +734,8 @@ export default class Users {
 
                 if (name.includes(searchQuery) || date.includes(searchQuery) || payment.includes(searchQuery)) {
                     filteredProducts.push(booking);
+                    bookingSearch.style.display = "";
+                    this.appendGlobalSearch(filteredProducts);
                 }
             }
 
@@ -723,13 +746,15 @@ export default class Users {
 
                 if (name.includes(searchQuery) || email.includes(searchQuery) || address.includes(searchQuery)) {
                     filteredProductsCustomers.push(customer);
+                    customerSearch.style.display = "";
+                    this.appendGlobalSearchCustomers(filteredProductsCustomers);
                 }
             }
 
 
 
-            this.appendGlobalSearch(filteredProducts);
-            this.appendGlobalSearchCustomers(filteredProductsCustomers);
+            // this.appendGlobalSearch(filteredProducts);
+            // this.appendGlobalSearchCustomers(filteredProductsCustomers);
             console.log(filteredProductsCustomers)
 
         }

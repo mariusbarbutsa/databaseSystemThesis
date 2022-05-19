@@ -179,8 +179,7 @@ window.toggleSidebarOff = () => {
 // Display the modal. private booking function - Marius
 
 window.modalDisplay = function (state) {
-  /* state can be 1 or 0 */
-  var bluredContainer = document.getElementById('overlay-container');
+
   var overlayElement = document.getElementById('overlay');
 
   if (state) {
@@ -191,7 +190,7 @@ window.modalDisplay = function (state) {
 };
 
 window.filterDisplay = function (state) {
-  /* state can be 1 or 0 */
+
   var overlayElement = document.getElementById('overlay-filter');
 
   if (state) {
