@@ -204,6 +204,14 @@ select::after {
   display: flex;
 }
 
+.search-title {
+  font-weight: 600;
+    font-size: 24px;
+    line-height: 0;
+    padding-top: 32px;
+    margin-bottom: 16px;
+}
+
 #customer-amount,
 #company-amount,
 #partner-amount,

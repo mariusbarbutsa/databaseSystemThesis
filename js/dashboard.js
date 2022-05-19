@@ -34,6 +34,7 @@ export default class Dashboard {
         </div>
         <section class="latestbookingsBox globalSearchBox" id='bookingsSearchSection' style='display: none;'>
       <div class="latestbookingsContent">
+      <p class="search-title">Bookings</p>
          <div>
         <table class="latestbookingsTable">
           <thead class='global-thead-absolute'>
@@ -71,7 +72,8 @@ export default class Dashboard {
     </section>
 
     <section class="latestbookingsBox globalSearchBoxCustomers" id='customersSearchSection' style='display: none;'>
-      <div class="latestbookingsContent">
+    <div class="latestbookingsContent">
+    <p class="search-title">Customers</p>
          <div>
         <table class="latestbookingsTable">
           <thead class='global-thead-absolute'>
