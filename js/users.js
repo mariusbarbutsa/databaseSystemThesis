@@ -708,7 +708,7 @@ export default class Users {
     // Search function - Marius
 
     searchedData(value) {
-        let searchitem = document.querySelector("#searchedData");
+        // let searchitem = document.querySelector("#searchedData");
         let bookingSearch = document.querySelector('#bookingsSearchSection');
         let customerSearch = document.querySelector('#customersSearchSection');
         bookingSearch.style.display = "none";
