@@ -89,6 +89,10 @@ window.filterByStatus = function (value) {
 window.addEventListener("load", function () {
   document.querySelector("body").classList.add("loaded");
 });
+
+window.scrollToTop = function () {
+  window.scrollTo(0, 0);
+}
 0
 // window.orderByStatus = function () {
 //   users.orderByStatus();
