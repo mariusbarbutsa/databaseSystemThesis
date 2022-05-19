@@ -9,11 +9,13 @@ export default class Customers {
 
     document.querySelector("#customers").innerHTML += /*html*/ `
         <div class="top-content">
+        <!-- breadcrumbs navigation -->
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
         <a href="#customers" class="step-link active-link">Customers</a>
         </div>
+        <!-- username and language -->
         <div class="user-display">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
@@ -26,7 +28,8 @@ export default class Customers {
      <div class='search-flex-numbers'><span id="customer-amount"></span>
      <p class="item-total">customers</p></div>
      </div>
-
+     
+     <!-- customers table -->
      <div class="page-layout">
      
       <section class="customersBox">
@@ -63,8 +66,8 @@ export default class Customers {
       </div>
     </section>
 
-
-
+    
+    <!-- quick action table -->
     <section class="quick-actions">
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>

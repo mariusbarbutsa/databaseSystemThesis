@@ -21,10 +21,10 @@ export default class Users {
         this.partners = [];
         this.creditCards = [];
     }
+    // ========== READ ==========
+    // watch the database ref for changes
 
     readBookings() {
-        // ========== READ ==========
-        // watch the database ref for changes
         this.bookingRef.onSnapshot(snapshotData => {
 
             this.bookings = snapshotData.docs.map(doc => {
@@ -100,7 +100,7 @@ export default class Users {
     }
 
 
-    // append latest orders to the DOM
+    // append latest bookings to the DOM 
     appendBooking(bookings) {
         let htmlTemplate = "";
         for (let booking of this.bookings) {
@@ -124,6 +124,7 @@ export default class Users {
         console.log(bookings)
     }
 
+    // append bookings to the DOM
     appendBookings(bookings) {
         let htmlTemplate = "";
         for (let booking of bookings) {
@@ -224,7 +225,7 @@ export default class Users {
         document.querySelector('#fetchedPartnerAlias').innerHTML = attachPartners;
         console.log(partners)
     }
-
+    // append credit cards to the DOM
     appendCreditCards(cards) {
         let htmlTemplate = "";
         for (let card of cards) {
@@ -246,7 +247,7 @@ export default class Users {
 
 
 
-
+    // append detailed view of the customer - Vlada
     showDetailView(id) {
         const customerObject = this.customers.find((customer) => customer.id == id);
         document.querySelector("#detailed-view-container").innerHTML = /*html*/ `
@@ -508,6 +509,7 @@ export default class Users {
         document.querySelector('#fetchedCustomerCreditCards').innerHTML = htmlTemplate2;
     }
 
+    // append detailed view of the booking - Vlada
     showBooking(id) {
         const bookingObject = this.bookings.find((booking) => booking.id == id);
         document.querySelector("#booking-detail").innerHTML = /*html*/ `
@@ -584,7 +586,7 @@ export default class Users {
     // }
 
 
-    // order functions - Marius
+    // order functions by status, date and price - Marius
 
     orderBy(value) {
         console.log(value)
@@ -665,7 +667,7 @@ export default class Users {
         });
         this.appendCustomer(this.customers);
     }
-
+    // append bookings from the global search results
     appendGlobalSearch(bookings) {
         let htmlTemplate = "";
         for (let booking of bookings) {
@@ -683,7 +685,7 @@ export default class Users {
         }
         document.querySelector('#searchedData').innerHTML = htmlTemplate;
     }
-
+    // append customers from the global search results
     appendGlobalSearchCustomers(customers) {
         let htmlTemplate = "";
         for (let customer of customers) {
@@ -705,10 +707,11 @@ export default class Users {
         document.querySelector('#searchedDataCustomers').innerHTML = htmlTemplate;
     }
 
-    // Search function - Marius
-
+    // Global search from the Dashboard, works for the bookings and customers collections - Marius
     searchedData(value) {
         // let searchitem = document.querySelector("#searchedData");
+
+        //selecting both tables from the dashboard and hiding them if the search value does not match the content from the collections
         let bookingSearch = document.querySelector('#bookingsSearchSection');
         let customerSearch = document.querySelector('#customersSearchSection');
         bookingSearch.style.display = "none";
@@ -750,9 +753,6 @@ export default class Users {
                     this.appendGlobalSearchCustomers(filteredCustomers);
                 }
             }
-
-
-
             // this.appendGlobalSearch(filteredProducts);
             // this.appendGlobalSearchCustomers(filteredProductsCustomers);
             console.log(filteredProductsCustomers)
@@ -760,7 +760,7 @@ export default class Users {
         }
 
     }
-
+    // search function for the customer page
     searchCustomers(value) {
 
         if (value == "") {
@@ -813,7 +813,7 @@ export default class Users {
         }
 
     }
-
+    // search function for the partners page
     searchPartners(value) {
 
         if (value == "") {
@@ -840,7 +840,7 @@ export default class Users {
         }
 
     }
-
+    // search function for the bookings page
     searchBookings(value) {
 
         if (value == "") {
@@ -866,7 +866,7 @@ export default class Users {
 
         }
     }
-
+    // search function for the credit cards page
     searchCreditcards(value) {
 
         if (value == "") {
@@ -897,8 +897,8 @@ export default class Users {
 
 
 
-    // ========== CREATE ==========
-    // add a new user to firestore (database)
+
+    // create function that adds a new customer and booking to the firestore
     create(name, email, phone, address, createdOn, balance, credits, status, alias, service, type, serviceDate, price, payment, fakturaNumber) {
 
         this.customerRef.add({

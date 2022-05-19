@@ -7,7 +7,7 @@ export default class LoginPage {
   template() {
 
     document.querySelector("#login").innerHTML += /*html*/ `
-
+    <!-- append login box -->
        <div class='login-container'>
        <img src="/img/svg/icon-raskrask.svg" class='logo-svg'>
         <!-- firebase auth container  -->

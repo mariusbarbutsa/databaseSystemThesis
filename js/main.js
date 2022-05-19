@@ -94,6 +94,7 @@ window.addEventListener("load", function () {
 //   users.orderByStatus();
 // }
 
+// create user function - attributing variable to the elements from the table
 window.createUser = () => {
   document.getElementById('overlay').style.display = 'none';
   // references to the input fields
@@ -126,8 +127,7 @@ window.createUser = () => {
   _spaService.navigateTo("home");
 }
 
-// Toggle sidebar - Marius
-
+// Toggle navigation sidebar ON - Marius
 window.toggleSidebar = () => {
   console.log("opening sidebar");
   document.getElementById("mySidebar").style.width = "206px";
@@ -148,11 +148,9 @@ window.toggleSidebar = () => {
     menuItem.style.justifyContent = 'left';
     menuItem.style.marginLeft = '16px';
   });
-
-
-
 }
 
+// Toggle navigation sidebar OFF
 window.toggleSidebarOff = () => {
   console.log("closing sidebar");
   document.getElementById("mySidebar").style.width = "80px";
@@ -176,8 +174,8 @@ window.toggleSidebarOff = () => {
   });
 
 }
-// Display the modal. private booking function - Marius
 
+// Display the modal private booking function - Marius
 window.modalDisplay = function (state) {
 
   var overlayElement = document.getElementById('overlay');
@@ -188,6 +186,7 @@ window.modalDisplay = function (state) {
     overlayElement.style.display = 'none';
   }
 };
+// Display the modal filter partners function - Vlada
 
 window.filterDisplay = function (state) {
 

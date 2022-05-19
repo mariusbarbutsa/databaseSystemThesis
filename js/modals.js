@@ -10,6 +10,7 @@ export default class Modals {
   template() {
 
     document.querySelector("#modals").innerHTML += /*html*/ `
+     <!-- private booking modal function -->
     <div id="overlay">
     <div id="popup"><a href="javascript:modalDisplay(0);"><img class="close-modal" src="/img/svg/close-modal.svg"></a>
       <div class="modal-flexbox">
@@ -99,7 +100,6 @@ export default class Modals {
 
         <div class="modal-form-row">
 
-
           <div class="modal-form-field right-margin">
             <p class="modal-field-label">Discount</p>
             <div class="modal-field-phone">
@@ -143,6 +143,8 @@ export default class Modals {
       </div>
     </div>
   </div>
+  
+      <!-- partners filter modal function -->
   <div id="overlay-filter">
     <div id="filter-popup"><a href="javascript:filterDisplay(0);"><img class="close-modal"
           src="/img/svg/close-modal.svg"></a>

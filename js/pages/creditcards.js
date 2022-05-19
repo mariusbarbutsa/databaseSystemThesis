@@ -8,11 +8,13 @@ export default class CreditCards {
 
     document.querySelector("#creditcards").innerHTML += /*html*/ `
         <div class="top-content">
+        <!-- breadcrumbs navigation -->
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
         <a href="#creditcards" class="step-link active-link">Credit Cards</a>
         </div>
+                <!-- username and language -->
         <div class="user-display">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
@@ -27,6 +29,7 @@ export default class CreditCards {
      <p class="item-total">credit cards</p></div>
      </div>
 
+     <!-- credit cards table -->
      <div class="page-layout">
       <section class="customersBox">
       <div class="latestbookingsContent">
@@ -64,7 +67,7 @@ export default class CreditCards {
     </section>
 
 
-
+    <!-- quick action table -->
     <section class="quick-actions">
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>

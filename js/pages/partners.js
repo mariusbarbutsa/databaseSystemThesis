@@ -7,11 +7,13 @@ export default class Partners {
 
     document.querySelector("#partners").innerHTML += /*html*/ `
         <div class="top-content">
+         <!-- breadcrumbs navigation -->
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
         <a href="#customers" class="step-link active-link">Partners</a>
         </div>
+         <!-- username and language -->
         <div class="user-display">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
@@ -24,10 +26,11 @@ export default class Partners {
     <div class="filter-flex">
     <div class='search-flex-numbers'><span id="partner-amount"></span>
      <p class="item-total">partners</p></div>
+     <!-- partners filter -->
      <a href="javascript:filterDisplay(1);" class="filter-btn"><img src="../img/svg/filter.svg" class="filter-icon">Filter</a>
      </div>
      </div>
-     
+      <!-- partners table -->
       <section class="partnersBox">
       <div class="latestbookingsContent">
         <table class='table-customers'>

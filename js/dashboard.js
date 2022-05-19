@@ -26,12 +26,15 @@ export default class Dashboard {
 
     document.querySelector("#home").innerHTML += /*html*/ `
     <div class='user-display-flexbox'>
+      <!-- global search -->
       <div class='search-box'><input type="search" placeholder="Search" onkeyup="searchedData(this.value)" class='globalSearch'/></div>
+        <!-- username and language -->
         <div class="user-display align-right">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
         </div>
         </div>
+        <!-- bookings table appended after search -->
         <section class="latestbookingsBox globalSearchBox" id='bookingsSearchSection' style='display: none;'>
       <div class="latestbookingsContent">
       <p class="search-title">Bookings</p>
@@ -71,6 +74,7 @@ export default class Dashboard {
       </div>
     </section>
 
+    <!-- customers table appended after search -->
     <section class="latestbookingsBox globalSearchBoxCustomers" id='customersSearchSection' style='display: none;'>
     <div class="latestbookingsContent">
     <p class="search-title">Customers</p>
@@ -109,7 +113,9 @@ export default class Dashboard {
     <h1 class="heading">DASHBOARD</h2>
 
      <div class="layout">
+     <!-- content aligned to left -->
      <div class="content-left">
+      <!-- functions -->
       <section class="functions">
       <a href="javascript:modalDisplay(1);" >
         <div class="function-box box1">
@@ -153,6 +159,7 @@ export default class Dashboard {
         </a>
       </section>
 
+      <!-- latest orders -->
       <section class="latestbookingsBox">
       <div class="latestbookingsContent">
         <p class="latestbookingsTitle">Latest orders</p>
@@ -193,7 +200,9 @@ export default class Dashboard {
     </section>
     </div>
 
+    <!-- content aligned to right -->
     <div class="content-right">
+    <!-- analytics section -->
     <section class="stats">
         <p class="stats-heading">Today, April 28 2022</p>
         <p class="daily-clients-text">4 NEW CLIENTS</p>
@@ -216,7 +225,8 @@ export default class Dashboard {
          </div>
          </div>
        </section>
-
+       
+    <!-- help section -->
     <section class="help">
       <div class="help-box">
         <img src="../img/svg/help.svg" class="help-img">

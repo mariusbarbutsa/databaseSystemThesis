@@ -8,11 +8,13 @@ export default class Bookings {
 
     document.querySelector("#bookings").innerHTML += /*html*/ `
         <div class="top-content">
+        <!-- breadcrumbs navigation -->
         <div class="breadcrumbs">
         <a href="#"><img src="../img/svg/home.svg"></a>
         <img src="../img/svg/bracket.svg" class="back-bracket">
         <a href="#bookings" class="step-link active-link">Bookings</a>
         </div>
+        <!-- username and language -->
         <div class="user-display">
         <p class="username" id='username'></p>
         <img src="../img/svg/danish-flag.svg" class="flag">
@@ -26,7 +28,7 @@ export default class Bookings {
      <div class='search-flex-numbers'><span id="booking-amount"></span>
      <p class="item-total">bookings</p></div>
      </div>
-
+     <!-- bookings table -->
      <div class="page-layout">
       <section class="customersBox">
       <div class="latestbookingsContent">
@@ -64,7 +66,7 @@ export default class Bookings {
     </section>
 
 
-
+<!-- quick action table -->
     <section class="quick-actions">
        <div class="action-box">
        <p class="actions-heading">Quick Actions</p>
