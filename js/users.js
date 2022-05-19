@@ -719,7 +719,7 @@ export default class Users {
             customerSearch.style.display = "none";
             document.querySelector('.latestbookingsBox').classList.add("globalSearchBoxCustomers");
         } else {
-            searchitem.style.display = "";
+            // searchitem.style.display = "";
             // bookingSearch.style.display = "";
             // customerSearch.style.display = "";
 
