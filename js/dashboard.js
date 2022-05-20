@@ -153,19 +153,20 @@ export default class Dashboard {
         <div class="function-box">
           <div class="function-content">
               <img src="img/svg/create-promocode.svg" class="function-icon">
-              <p class="function-name name4">Create Promo Code</p>
+              <p class="function-name name4">Create Promo<br>Code</p>
           </div>
         </div>
         </a>
       </section>
 
       <!-- latest orders -->
-      <section class="latestbookingsBox">
+
+      <section class="customersBoxDashboard">
       <div class="latestbookingsContent">
-        <p class="latestbookingsTitle">Latest orders</p>
-         <div class='scroll-box'>
-        <table class="latestbookingsTable">
-          <thead class='thead-absolute'>
+      <p class="search-title">Latest orders</p>
+      <div class='scroll-box'>
+        <table class='table-customers'>
+          <thead>
             <tr>
               <th>
                 <button class="latestbookingsOrderLabel" name="status" value="status" onclick="orderBy(this.value);">Status<img src="/img/svg/order.svg" class="ordericon"></button>
@@ -177,13 +178,13 @@ export default class Dashboard {
                 <div class="latestbookingsOrderLabel">Type</div>
               </th>
               <th>
-                <div class=" truncated-text latestbookingsOrderLabel">Fak. nr.</div>
+                <div class="latestbookingsOrderLabel">Fak. nr.</div>
               </th>
               <th>
                 <div class="latestbookingsOrderLabel">Name</div>
               </th>
-              <th>
-                <button class="latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created on<img src="/img/svg/order.svg"
+               <th>
+                <button class="latestbookingsOrderLabel" name="date" value="date" onclick="orderBy(this.value);">Created<img src="/img/svg/order.svg"
                     class="ordericon"></button>
               </th>
               <th>
@@ -191,13 +192,14 @@ export default class Dashboard {
               </th>
             </tr>
           </thead>
-          <tbody tbody id = "fetchedLatestBookings" >
+          <tbody id ="fetchedLatestBookings">
           </tbody>
           </tr>
         </table>
-      </div>
+        </div>
       </div>
     </section>
+    
     </div>
 
     <!-- content aligned to right -->

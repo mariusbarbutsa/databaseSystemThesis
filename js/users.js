@@ -109,7 +109,7 @@ export default class Users {
             var dateCreated = date;
             dateCreated = dateCreated.toDateString().split(' ').slice(1).join(' ');
             htmlTemplate += /*html*/ `
-            <tr>
+            <tr onclick = "showBooking('${booking.id}'); navigateTo('bookingview')" >
               <td class='truncated-text'>${booking.status}</td>
               <td class='truncated-text'>${booking.payment}</td>
               <td class='truncated-text'>${booking.type}</td>
@@ -490,7 +490,7 @@ export default class Users {
             console.log(customerObject.name, card.name)
             if (card.name == customerObject.name) {
                 htmlTemplate2 += /*html*/ `
-            <tr onclick = "showBooking('${card.account}'); navigateTo('')">
+            <tr>
             <td class='truncated-text'>${card.account}</td>
               <td class='truncated-text'>${card.type}</td>
               <td class='truncated-text'>${card.createdOn}</td>
@@ -519,9 +519,9 @@ export default class Users {
                  <img src="../img/svg/bracket.svg" class="back-bracket">
                 <a href="#customers" class="step-link">Customers</a>
                 <img src="../img/svg/bracket.svg" class="back-bracket">
-                <a href="detailedview" class="step-link">${bookingObject.name}</a>
+                <a onclick='history.back()' class="step-link">${bookingObject.name}</a>
                 <img src="../img/svg/bracket.svg" class="back-bracket">
-                <a href="#bookingview" class="step-link active-link">${bookingObject.id}</a>
+                <a onclick="showBooking('${bookingObject.id}');" class="step-link active-link">${bookingObject.id}</a>
             </div>
             <div class="user-display">
                 <p class="username" id='username'></p>
